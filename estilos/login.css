@@ -1,0 +1,130 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 
+    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 
+    'Helvetica Neue', sans-serif;
+}
+
+body {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    min-height: 100vh;
+    align-items: center;
+    background: url(../img/background.jpeg) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.logo img {
+    width: 7rem;
+    height: 7rem;
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+}
+
+.container{
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(2.2rem);
+    box-shadow: 0 0 1rem rgba(0, 0, 0, .2);
+    width: 28rem;
+    color: white;
+    border-radius: 1rem;
+    padding: 2rem;
+}
+
+
+.container h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.container .input-box{
+    width: 100%;
+    height: 3rem;
+    margin: 2rem 0;
+    position: relative;
+}
+
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 2.5rem;
+    font-size: 1rem;
+    color: red;
+    font-weight: 600;
+    padding: 1rem 3rem 1rem 1rem;
+}
+
+.input-box input::placeholder{
+    color: red;
+}
+
+.input-box i {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+}
+
+.container .recordar {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    margin: -1rem 0 1rem;
+}
+
+.recordar label input {
+    accent-color: white;
+    margin-right: 0.3rem;
+}
+
+.recordar a {
+    color: white;
+    text-decoration: none;
+}
+
+.recordar a:hover {
+    text-decoration: underline ;
+}
+
+.container .btn {
+    width: 100%;
+    height: 3rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    outline: none;
+    border-radius: 2rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 1rem;
+    color: red;
+    font-weight: 600;
+}
+ 
+.container .crear-cuenta{
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 2rem;
+}  
+
+.crear-cuenta p a {
+   color: white;
+   text-decoration: none;
+   font-weight: 600; 
+}
+
+.crear-cuenta p a:hover {
+    text-decoration: underline ;
+}
+
