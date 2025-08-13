@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Independiente</title>
-    <link rel="stylesheet" href="estilos/index.css">
-    <link rel="stylesheet" href="estilos/carrusel.css">
+    <link rel="stylesheet" href="assets/estilos/index.css">
+    <link rel="stylesheet" href="assets/estilos/carrusel.css">
     <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
@@ -29,18 +29,11 @@
 
         <div class="noticia1">
 
-           <?php
-           include 'conexion_db/conexion.php';
-            $sql = "SELECT * FROM noticias WHERE tipo='principal' ORDER BY fecha DESC LIMIT 4";
-            $resultado = $conexion->query($sql);
-            while($noticia = $resultado->fetch_assoc()) {
-                echo "<div class='noticia-principal' style='background-image: url(\"{$noticia['img']}\");'>";
-                echo "<h2>{$noticia['titulo']}</h2>";
-                echo "<p>{$noticia['contenido']}</p>";
-                echo "</div>";  
-            }
-            $conexion->close();
-        ?>
+           <h2>NOTICIA</h2>
+           <P>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa,
+            consequatur ipsam iste voluptate eveniet numquam nemo. Quaerat necessitatibus,
+            nihil eum consectetur doloremque quisquam facilis eaque. Sequi necessitatibus expedita sunt officia?</P>    
+
         </div>
 
         <div class="noticia1">
@@ -74,6 +67,7 @@
 
     <div class="container my-5">
 
+    <h1 class="jugadores-title">Multimedia</h1>
     <!-- Video grande arriba -->
     <div class="row justify-content-center mb-4">
       <div class="col-12 col-md-8">
@@ -107,28 +101,28 @@
         
       <div class="contenedor-noticias"> 
           <div class="content-noticias">
-              <img src="img/img1.jpeg" alt="">
+              <img src="assets/img/img1.jpeg" alt="">
               <p>Lorem ipsum, dolor sit amet consectetur adipisicing
                   elit. Officiis doloribus harum, nobis et voluptatum quod
               </p>
           </div>
 
           <div class="content-noticias">
-              <img src="img/img1.jpeg" alt="">
+              <img src="assets/img/img1.jpeg" alt="">
               <p>Lorem ipsum, dolor sit amet consectetur adipisicing
                   elit. Officiis doloribus harum, nobis et voluptatum quod
               </p>
           </div>
 
           <div class="content-noticias">
-              <img src="img/img1.jpeg" alt="">
+              <img src="assets/img/img1.jpeg" alt="">
               <p>Lorem ipsum, dolor sit amet consectetur adipisicing
                   elit. Officiis doloribus harum, nobis et voluptatum quod
               </p>
           </div>
 
           <div class="content-noticias">
-              <img src="img/img1.jpeg" alt="">
+              <img src="assets/img/img1.jpeg" alt="">
               <p>Lorem ipsum, dolor sit amet consectetur adipisicing
                   elit. Officiis doloribus harum, nobis et voluptatum quod
               </p>
@@ -174,8 +168,8 @@
 
 <footer class="footer">
   <div class="footer-content">
-    <p>&copy; 2025 Club Atlético Independiente</p>
-    <p>Diseñado para hinchas del Rojo ❤️</p>
+    <p> &copy; 2025 Club Atlético Independiente </p>
+    <p> Diseñado para hinchas del Rojo ❤️ </p>
   </div>
 </footer>
 
