@@ -1,0 +1,12 @@
+.footer {
+  background-color: #000; /* Negro */
+  color: #EC1C24;          /* Rojo Independiente */
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-size: 1rem;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.footer-content p {
+  margin: 0.5rem 0;
+}

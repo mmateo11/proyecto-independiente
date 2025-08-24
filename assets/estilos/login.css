@@ -13,17 +13,9 @@ body {
     justify-content: center;
     min-height: 100vh;
     align-items: center;
-    background: url(../img/background.jpeg) no-repeat;
+    background: url("../img/background.jpeg") no-repeat;
     background-size: cover;
     background-position: center;
-}
-
-.logo img {
-    width: 7rem;
-    height: 7rem;
-    position: absolute;
-    top: 0rem;
-    left: 0rem;
 }
 
 .container{
@@ -128,3 +120,20 @@ body {
     text-decoration: underline ;
 }
 
+.mensaje {
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 5px;
+  display: none;
+  font-weight: bold;
+}
+
+.mensaje.error {
+  background-color: #f8d7da;
+  color: #842029;
+}
+
+.mensaje.success {
+  background-color: #d1e7dd;
+  color: #0f5132;
+}
