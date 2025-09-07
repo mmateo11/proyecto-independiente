@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
+<head>  
   <meta charset="UTF-8">
   <title>Admin - Jugadores</title>
   <style>
@@ -14,7 +14,15 @@
   </style>
 </head>
 <body>
-  <h1>Panel de Administración - Jugadores</h1>
+  <?php
+// admin/index.php
+  $soloCerrarSesion = true;
+  include '../../pages/components/header.php';
+  ?>
+  
+  <a href="../index.php">Volver Atras</a>
+
+  <h1>Panel de Administración - Jugadores </h1>
 
   <form id="playerForm">
     <input type="hidden" id="playerId">
@@ -38,6 +46,6 @@
     <tbody id="playersTable"></tbody>
   </table>
 
-  <script src="./admin.js"></script>
+  <script src="./jugadores.js"></script>
 </body>
 </html>

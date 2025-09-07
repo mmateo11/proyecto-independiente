@@ -14,46 +14,41 @@ body {
 
 /* NOTICIAS */
 
-.content{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 1rem;
-  margin: 0 auto;
-  background-color: #EC1C24;
-}
+    .principales {
+    display: flex;
+    flex-wrap: wrap;      
+    justify-content: center;
+    gap: 2rem;              
+    padding: 1rem;
+    margin: 0 auto;
+    background-color: #EC1C24;
+  }
 
-.noticia1 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  max-width: 27rem;
-  height: 20rem;
-  background-color: black;
-  border-radius: 1rem;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-  padding: 1rem;
-  margin-bottom: 3rem;
-}
+  .noticia1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: calc(50% - 1rem);
+    max-width: 27rem;
+    height: 20rem;
+    border-radius: 1rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  }
 
-.noticia1 h2 {
-  color: white;
-  font-size: 2rem;
-  text-align: center;
-  transition: all 0.3s ease;
-}
 
-.noticia1 h2:hover {
- color: red;
- transform: scale(1.1);
- text-decoration: underline;
- cursor: pointer;
-}
+  .noticia1 h2 {
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
 
-.noticia1 p {
-  display: none;
-}
+  .noticia1 h2:hover {
+  color: red;
+  transform: scale(1.1);
+  text-decoration: underline;
+  cursor: pointer;
+  }
 
 /* MULTIMEDIA */
 
@@ -94,7 +89,7 @@ body {
 .noticia-flex-item {
   flex: 1 1 calc(50% - 2rem);
   min-width: 16rem;
-  max-width: 28rem;
+  max-width: 35rem;
   display: flex;
   flex-direction: column;
   margin-top: 3rem;
@@ -103,10 +98,11 @@ body {
 .noticia-overlay {
   position: relative;
   width: 100%;
-  min-height: 16rem;
+  height: 14rem;  /* antes 16rem, ahora más pequeña */
   overflow: hidden;
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
+
 
 .noticia-overlay img {
   width: 100%;
@@ -193,6 +189,48 @@ body {
     font-size: 2.5rem;
   }
 }
+
+/* Cabecera */
+#cabecera {
+    background-color: #EC1C24; /* rojo fuerte */
+    padding: 1rem 3rem;
+    display: flex;
+    justify-content: space-between; /* redes izquierda, sponsors derecha */
+    align-items: center;            /* centra verticalmente */
+    flex-wrap: wrap;                /* permite que en móviles se acomoden */
+}
+
+/* Redes sociales */
+#sociales {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 2rem; /* espacio entre íconos */
+    list-style: none;
+}
+
+#sociales li a {
+    color: #99090d;
+    font-size: 1.4rem;
+    transition: color 0.3s;
+    text-decoration: none;
+}
+
+#sociales li a:hover {
+    color: #fff;
+}
+
+
+/* Responsive para móviles */
+@media (max-width: 576px) {
+    #sociales{
+        justify-content: center;
+        margin-top: 0.5rem;
+        flex-wrap: wrap; /* permite que los logos bajen de línea */
+    }
+}
+
+
 
 
 

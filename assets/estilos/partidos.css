@@ -1,0 +1,112 @@
+    * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    }
+    
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      color: #1c1c1c;
+    }
+
+    .header {  
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      margin: 0;
+      color: #333333; /* gris oscuro suave */
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    .contenedor {
+      max-width: 60rem;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .partido {
+      background: #ffffff;
+      border-radius: 1rem;
+      box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .partido:hover {
+      transform: translateY(-0.3rem);
+      box-shadow: 0 1rem 2rem rgba(0,0,0,0.15);
+    }
+
+    .equipos {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex: 1;
+    }
+
+    .equipo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+
+    .equipo img {
+      width: 3rem;
+      height: 3rem;
+      object-fit: contain;
+      margin-bottom: 0.3rem;
+    }
+
+    .vs {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #1c1c1c;
+    }
+
+    .info {
+      text-align: right;
+      font-size: 0.9rem;
+    }
+
+    .resultado {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #d50000;
+    }
+
+    /* Partido próximo destacado */
+    .proximo {
+      border: 2px solid #d50000;
+      background: #ffeaea;
+    }
+
+    .btn-comprar {
+    margin-top: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #d50000;
+    color: #ffffff;;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-comprar:hover {
+    background-color: #a80000;
+    transform: scale(1.05);
+    }

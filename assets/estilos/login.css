@@ -1,139 +1,116 @@
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 
-    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 
-    'Helvetica Neue', sans-serif;
 }
 
-body {
-    display: flex;
-    position: relative;
-    justify-content: center;
-    min-height: 100vh;
-    align-items: center;
-    background: url("../img/background.jpeg") no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-
-.container{
-    background-color: transparent;
-    border: 2px solid rgba(255, 255, 255, .2);
-    backdrop-filter: blur(2.2rem);
-    box-shadow: 0 0 1rem rgba(0, 0, 0, .2);
-    width: 28rem;
-    color: white;
-    border-radius: 1rem;
-    padding: 2rem;
-}
-
-
-.container h1 {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-
-.container .input-box{
-    width: 100%;
-    height: 3rem;
-    margin: 2rem 0;
-    position: relative;
-}
-
-.input-box input{
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.5);
-    border: none;
-    outline: none;
-    border: 2px solid rgba(255, 255, 255, .2);
-    border-radius: 2.5rem;
-    font-size: 1rem;
-    color: red;
-    font-weight: 600;
-    padding: 1rem 3rem 1rem 1rem;
-}
-
-.input-box input::placeholder{
-    color: red;
-}
-
-.input-box i {
-    position: absolute;
-    right: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 1.2rem;
-}
-
-.container .recordar {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.9rem;
-    margin: -1rem 0 1rem;
-}
-
-.recordar label input {
-    accent-color: white;
-    margin-right: 0.3rem;
-}
-
-.recordar a {
-    color: white;
-    text-decoration: none;
-}
-
-.recordar a:hover {
-    text-decoration: underline ;
-}
-
-.container .btn {
-    width: 100%;
-    height: 3rem;
-    background-color: rgba(255, 255, 255, 0.5);
-    border: none;
-    outline: none;
-    border-radius: 2rem;
-    box-shadow: 0 0 1rem rgba(0, 0, 0, .1);
-    cursor: pointer;
-    font-size: 1rem;
-    color: red;
-    font-weight: 600;
-}
- 
-.container .crear-cuenta{
-    font-size: 1rem;
-    text-align: center;
-    margin-top: 2rem;
-}  
-
-.crear-cuenta p a {
-   color: white;
-   text-decoration: none;
-   font-weight: 600; 
-}
-
-.crear-cuenta p a:hover {
-    text-decoration: underline ;
-}
-
-.mensaje {
-  padding: 1rem;
-  margin-top: 1rem;
-  border-radius: 5px;
+/* Fondo semitransparente */
+.modal {
   display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(0.25rem); 
+  font-family: 'Arial', sans-serif;
+}
+
+/* Caja del modal */
+.modal-content {
+  background: rgba(20, 20, 20, 0.95);
+  margin: 1.5rem auto;
+  padding: 2rem 2.5rem; 
+  border-radius: 1rem; 
+  width: 35rem;
+  max-height: 90vh; 
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 0.5rem 1.25rem rgba(0,0,0,0.5);
+  position: relative;
+}
+
+/* Cerrar */
+.cerrar {
+  position: absolute;
+  top: 1rem; 
+  right: 1.25rem;
+  font-size: 1.375rem; 
+  cursor: pointer;
+  color: #fff;
+  transition: color 0.2s;
+}
+.cerrar:hover {
+  color: #ff3b3b;
+}
+
+/* Título */
+.modal-content h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem; 
   font-weight: bold;
 }
 
-.mensaje.error {
-  background-color: #f8d7da;
-  color: #842029;
+/* Inputs */
+.modal-content input,
+.modal-content select {
+  width: 100%;
+  padding: 0.75rem 0.9375rem; 
+  margin: 0.625rem 0;
+  border-radius: 0.5rem; 
+  border: none;
+  outline: none;
+  font-size: 0.875rem;
+  background: #2c2c2c;
+  color: #fff;
+  box-shadow: inset 0 0.125rem 0.25rem rgba(0,0,0,0.3);
+  transition: all 0.2s;
 }
 
-.mensaje.success {
-  background-color: #d1e7dd;
-  color: #0f5132;
+.modal-content input:focus,
+.modal-content select:focus {
+  box-shadow: 0 0 0 0.125rem #e50914;
+}
+
+/* Botón */
+.modal-content button {
+  width: 100%;
+  padding: 0.75rem; 
+  margin-top: 0.9375rem; 
+  border: none;
+  border-radius: 0.625rem; 
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.modal-content button[type="submit"] {
+  background-color: #e50914;
+  color: #fff;
+}
+
+.modal-content button[type="submit"]:hover {
+  background-color: #ff1c1c;
+}
+
+.modal-content button[type="button"] {
+  background-color: #fff;
+  color: #000;
+  margin-right: 0.625rem; 
+}
+
+.modal-content button[type="button"]:hover {
+  background-color: #ddd;
+}
+
+/* Labels */
+.modal-content label {
+  display: block;
+  text-align: left;
+  margin-top: 0.625rem; 
+  font-size: 0.8125rem; 
+  color: #ccc;
 }

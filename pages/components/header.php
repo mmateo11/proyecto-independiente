@@ -8,31 +8,22 @@
 <body>
 
     <header>
+    <?php if(isset($soloCerrarSesion) && $soloCerrarSesion === true): ?>
+    <a class="boton-link" href="#" onclick="cerrarSesion(event)">Cerrar sesión</a>
+    <?php else: ?>
 
-    <a href="../index.php" class="logo">
-        <img src="assets/img/independiente-logo.png" alt="logo">
+    <a href="/proyecto/index.php" class="logo">
+        <img src="/proyecto/assets/img/independiente-logo.png" alt="logo">
     </a>
         
     <div class="botones-nav">
-        <a class="boton-link" href="#">Entradas Digitales</a>
-        <a class="boton-link" href="#">Asociate</a>
-        <a class="boton-link" href="#">Sede Digital</a>
-        <a class="boton-link" href="#" onclick="cerrarSesion(event)">Cerrar sesión</a>
+        <a class="boton-link" href="/proyecto/pages/partidos/partidos.php">Entradas Digitales</a>
+        <a class="boton-link" id="btnsocios" href="#">Asociate</a>
+        <a class="boton-link" id="btnsededigital" href="#">Sede Digital</a>
+        <a class="boton-link" id="btncerrarsesion" href="#" >Cerrar sesión</a>
     </div>
-    <script>
-        function cerrarSesion(event) {
-        // Esto previene que el navegador siga el enlace (#)
-        event.preventDefault(); 
-        
-        // Eliminar el token de localStorage
-        localStorage.removeItem('token'); 
-        
-        // Redirigir al usuario a la página de login
-        window.location.href = "/proyecto/pages/auth/login.html"; 
-        }
-    </script>  
-
+    <?php endif; ?>
     </header>
-    
+
 </body>
 </html>

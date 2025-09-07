@@ -7,14 +7,14 @@ const router = express.Router();
 
 /* 1ERA ENTIDAD: noticias */
 
-router.get('/', async (req, res) => {
-  try {
-    const noticias = await prisma.noticias.findMany();
-    res.json(noticias);
-  } catch (error) {
-    res.status(500).json({ error: 'Error al obtener noticias' });
-  }
-});
+  router.get('/', async (req, res) => {
+    try {
+      const noticias = await prisma.noticias.findMany();
+      res.json(noticias);
+    } catch (error) {
+      res.status(500).json({ error: 'Error al obtener noticias' });
+    }
+  });
 
 router.post('/', async (req, res) => {
   try {

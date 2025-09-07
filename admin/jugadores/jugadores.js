@@ -12,9 +12,9 @@ async function loadPlayers() {
       <td>${p.nombre}</td>
       <td>${p.posicion}</td>
       <td>${p.dorsal}</td>
-      <td><img src="${p.imagen}" alt="${p.nombre}" width="50"></td>
+      <td><img src="${p.url_imagen}" alt="${p.nombre}" width="50"></td>
       <td>
-        <button onclick="editPlayer('${p.id}', '${p.nombre}', '${p.posicion}', '${p.dorsal}', '${p.imagen}')">Editar</button>
+        <button onclick="editPlayer('${p.id}', '${p.nombre}', '${p.posicion}', '${p.dorsal}', '${p.url_imagen}')">Editar</button>
         <button onclick="deletePlayer('${p.id}')">Borrar</button>
       </td>
     `;
@@ -58,12 +58,12 @@ async function deletePlayer(id) {
   }
 }
 
-function editPlayer(id, nombre, posicion, dorsal, imagen) {
+function editPlayer(id, nombre, posicion, dorsal, url_imagen) {
   document.getElementById("playerId").value = id;
   document.getElementById("nombre").value = nombre;
   document.getElementById("posicion").value = posicion;
   document.getElementById("dorsal").value = dorsal;
-  document.getElementById("imagen").value = imagen;
+  document.getElementById("url_imagen").value = url_imagen;
 }
 
 loadPlayers();
