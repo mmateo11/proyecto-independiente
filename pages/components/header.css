@@ -1,10 +1,15 @@
+/* =========================================================
+   RESET / BASE
+========================================================= */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-
+/* =========================================================
+   HEADER
+========================================================= */
 header {
   display: flex;
   justify-content: space-between;
@@ -16,54 +21,7 @@ header {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.botones-nav {
-    display: flex;
-    flex-wrap: wrap; 
-    gap: 0.5rem; 
-    justify-content: flex-end; 
-}
-
-.boton-link {
-    background-color: black;
-    color: white;
-    border-radius: 1rem;
-    padding: 0.5rem 0.8rem;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    font-size: 1rem; /* Tamaño base */
-}
-
-.boton-link:hover {
-    background-color: rgba(0, 0, 0, 0.9);
-    color: #ff4d4d;
-    transform: translateY(-2px);
-}
-
-
-@media (max-width: 700px) {
-    /* Oculta el logo */
-    .logo img {
-        display: none;
-    }
-
-    .botones-nav {
-        justify-content: center;
-        width: 100%;  
-    }
-    
-    .boton-link {
-        font-size: 1rem;
-        padding: 0.4rem 0.6rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .boton-link {
-        font-size: 1rem; 
-        padding: 0.4rem 0.6rem; 
-    }
-}
-
+/* Logo */
 .logo {
   display: flex;
   align-items: center;
@@ -73,4 +31,93 @@ header {
 .logo img {
   width: 14rem;
   height: 3rem;
+}
+
+/* Navegación / Botones */
+.botones-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.boton-link {
+  background-color: black;
+  color: white;
+  border-radius: 1rem;
+  padding: 0.5rem 0.8rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.boton-link:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #ff4d4d;
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   MEDIA QUERIES
+========================================================= */
+
+/* 🔹 Pantallas chicas (celulares <480px) */
+@media (max-width: 480px) {
+  .boton-link {
+    font-size: 0.9rem;
+    padding: 0.35rem 0.5rem;
+  }
+
+  .logo img {
+    width: 12rem;
+    height: 2.5rem;
+  }
+
+  .botones-nav {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+/* 🔹 Pantallas medianas (tablets / hasta 700px) */
+@media (max-width: 700px) {
+    header {
+    width: 100%;
+    }
+
+  .logo img {
+    display: none; /* Oculta logo en tablets pequeños */
+  }
+
+  .botones-nav {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .boton-link {
+    font-size: 0.95rem;
+    padding: 0.4rem 0.6rem;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 800px) {
+  header {
+    width: 100%;
+    padding: 0.5rem 3rem;
+  }
+
+  .logo img {
+    display: none;
+  }
+
+  .botones-nav {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .boton-link {
+    font-size: 1rem;
+    padding: 0.5rem 0.8rem;
+  }
 }

@@ -27,6 +27,7 @@
   <form id="noticiaForm">
     <input type="hidden" id="noticiaId">
     <input type="text" id="titulo" placeholder="titulo" required>
+    <input type="text" id="resumen" placeholder="resumen" required>
     <select id="tipo" required>
         <option value="PRINCIPAL">PRINCIPAL</option>
         <option value="SECUNDARIO">SECUNDARIO</option>
@@ -41,6 +42,7 @@
       <tr>
         <th>titulo</th>
         <th>tipo</th>
+        <th>resumen</th>
         <th>descripcion</th>
         <th>fecha</th>
         <th>url_imagen</th>

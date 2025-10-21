@@ -24,13 +24,18 @@ model jugadores {
   posicion   String
   dorsal     Int
   url_imagen String
+  edad             Int?     
+  nacionalidad     String? 
+  peso             Float?     //, kg
+  lugar_nacimiento String?  
 }
 
 model noticias {
   id          Int         @id @default(autoincrement())
   titulo      String
   tipo        TipoNoticia
-  descripcion String
+  resumen     String?
+  descripcion String @db.Text 
   fecha       DateTime    @default(now())
   url_imagen  String
 }

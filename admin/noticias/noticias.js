@@ -13,11 +13,12 @@ async function loadnoticia() {
     row.innerHTML = `
       <td>${n.titulo}</td>
       <td>${n.tipo}</td>
+      <td>${n.resumen}</td>
       <td>${n.descripcion}</td>
       <td>${n.fecha || ""}</td>
       <td><img src="${n.url_imagen}" alt="${n.titulo}" width="50"></td>
       <td>
-        <button type="button" onclick="editnoticia('${n.id}', '${n.titulo}', '${n.tipo}', '${n.descripcion}', '${n.url_imagen}')">Editar</button>
+        <button type="button" onclick="editnoticia('${n.id}', '${n.titulo}', '${n.tipo}','${n.resumen}', '${n.descripcion}', '${n.url_imagen}')">Editar</button>
         <button type="button" onclick="deletenoticia('${n.id}')">Borrar</button>
       </td>
     `;
@@ -32,6 +33,7 @@ form.addEventListener("submit", async (e) => {
   const data = {
     titulo: document.getElementById("titulo").value,
     tipo: document.getElementById("tipo").value,
+    resumen: document.getElementById("resumen").value,
     descripcion: document.getElementById("descripcion").value,
     url_imagen: document.getElementById("url_imagen").value
   };
@@ -62,9 +64,10 @@ async function deletenoticia(id) {
   }
 }
 
-function editnoticia(id, titulo, tipo, descripcion, url_imagen) {
+function editnoticia(id, titulo, tipo, resumen, descripcion, url_imagen) {
   document.getElementById("noticiaId").value = id;
   document.getElementById("titulo").value = titulo;
+  document.getElementById("resumen").value = resumen;
   document.getElementById("tipo").value = tipo;
   document.getElementById("descripcion").value = descripcion;
   document.getElementById("url_imagen").value = url_imagen;

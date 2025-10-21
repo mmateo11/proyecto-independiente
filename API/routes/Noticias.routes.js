@@ -4,9 +4,6 @@ const prisma = new PrismaClient();
 
 const router = express.Router();
 
-
-/* 1ERA ENTIDAD: noticias */
-
   router.get('/', async (req, res) => {
     try {
       const noticias = await prisma.noticias.findMany();
@@ -29,16 +26,10 @@ router.post('/', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
-  const id = parseInt(req.params.id);
-  try {
-    const noticia = await prisma.noticias.findUnique({
-      where: { id },
-    });
-    if (!noticia) return res.status(404).json({ error: 'Noticia no encontrada' });
+    const id = parseInt(req.params.id);
+    const noticia = await prisma.noticias.findUnique({ where: { id } });
+    if (!noticia) return res.status(404).send('<h1>Noticia no encontrada</h1>');
     res.json(noticia);
-  } catch (error) {
-    res.status(500).json({ error: 'Error al obtener noticia' });
-  }
 });
 
 router.put('/:id', async (req, res) => {

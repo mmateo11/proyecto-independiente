@@ -18,6 +18,11 @@ const createPlayerCard = (jugador) => {
         <p class="carousel-card-text">Posición: ${jugador.posicion || 'N/A'}</p>
         <p class="carousel-card-text">Dorsal: ${jugador.dorsal || 'N/A'}</p>
     `;
+    
+    li.style.cursor = 'pointer';
+    li.addEventListener('click', () => {
+        window.location.href = 'pages/jugadores/detalle.html?id=' + jugador.id;
+    });
     return li;
 };
 

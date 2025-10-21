@@ -86,12 +86,81 @@ router.post('/register', async (req, res) => {
    res.status(201).json({
       success: true,                      
       message: 'Socio registrado con éxito', 
-      socio: { id: socio.id, nombre: socio.nombre, email: socio.email },
+      socio: { id: socio.id, nombre: socio.nombre, email: socio.email, 
+        fecha_nac: socio.fecha_nac, metodo_pago: socio.metodo_pago, estado: socio.activo },
       token,
   });
   } catch (error) {
     res.status(500).json({ success: false, error: 'Error al registrar socio' });
   }
 });
+
+router.post('/login', async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    if (!email || !password) {
+      return res.status(400).json({ success: false, error: 'Email y contraseña requeridos' });
+    }
+
+    const socio = await prisma.socios.findUnique({ where: { email } });
+    if (!socio) {
+      return res.status(401).json({ success: false, error: 'Credenciales inválidas' });
+    }
+
+    const valido = await bcrypt.compare(password, socio.password);
+    if (!valido) {
+      return res.status(401).json({ success: false, error: 'Credenciales inválidas' });
+    }
+
+    const token = jwt.sign(
+      { id: socio.id, tipo: 'socio' },
+      process.env.JWT_SECRET || 'secreto',
+      { expiresIn: '1h' }
+    );
+
+    res.status(200).json({
+      success: true,
+      message: 'Bienvenido',
+      socio: { id: socio.id, nombre: socio.nombre, email: socio.email, 
+        fecha_nac: socio.fecha_nac, metodo_pago: socio.metodo_pago, estado: socio.activo },
+      token,
+    });
+
+  } catch (err) {
+    res.status(500).json({ success: false, error: 'Error al iniciar sesión' });
+  }
+});
+
+// Nuevo endpoint para obtener socio actualizado
+router.get('/:id', async (req, res) => {
+  try {
+    const socio = await prisma.socios.findUnique({
+      where: { id: Number(req.params.id) },
+      select: {
+        id: true,
+        nombre: true,
+        email: true,
+        fecha_nac: true,
+        metodo_pago: true,
+        activo: true
+      }
+    });
+
+    if (!socio) return res.status(404).json({ error: 'Socio no encontrado' });
+
+    res.json({
+      id: socio.id,
+      nombre: socio.nombre,
+      email: socio.email,
+      fecha_nac: socio.fecha_nac,
+      metodo_pago: socio.metodo_pago,
+      estado: socio.activo
+    });
+  } catch (error) {
+    res.status(500).json({ error: 'Error al obtener socio' });
+  }
+});
+
+
 
 export default router;

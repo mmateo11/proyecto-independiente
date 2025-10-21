@@ -28,6 +28,10 @@
     <input type="hidden" id="playerId">
     <input type="text" id="nombre" placeholder="Nombre" required>
     <input type="text" id="posicion" placeholder="Posición" required>
+    <input type="number" id="edad" placeholder="edad" required>
+    <input type="text" id="lugar_nacimiento" placeholder="lugar nacimiento" required>
+    <input type="text" id="nacionalidad" placeholder="nacionalidad" required>
+    <input type="number" id="peso" placeholder="peso" required>
     <input type="number" id="dorsal" placeholder="Dorsal" required>
     <input type="url" id="url_imagen" placeholder="URL Imagen" required>
     <button type="submit">Guardar</button>
@@ -38,6 +42,10 @@
       <tr>
         <th>Nombre</th>
         <th>Posición</th>
+        <th>Edad</th>
+        <th>Lugar nacimiento</th>
+        <th>Nacionalidad</th>
+        <th>Peso</th>
         <th>Dorsal</th>
         <th>Imagen</th>
         <th>Acciones</th>

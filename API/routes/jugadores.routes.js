@@ -14,6 +14,14 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.get('/:id', async (req, res) => {
+    const id = parseInt(req.params.id);
+    const jugador = await prisma.jugadores.findUnique({ where: { id } });
+    if (!jugador) return res.status(404).send('<h1>Jugador no encontrado</h1>');
+    res.json(jugador);
+});
+
+
 router.post('/', async (req, res) => {
     try {
         const nuevoJugador = await prisma.jugadores.create({

@@ -1,4 +1,3 @@
-
 function actualizarHeader() {
   const btnAbrir = document.getElementById("btnsocios");
   const btnsededigital = document.getElementById("btnsededigital");
@@ -17,40 +16,18 @@ function actualizarHeader() {
 }
 
 
-document.addEventListener("DOMContentLoaded", () => {
-  // Modal y form
-  const modal = document.getElementById("modalSocio");
-  const btnAbrir = document.getElementById("btnsocios");
-  const btnCerrar = document.getElementById("cerrarModal");
-  const form = document.getElementById("formSocio");
-
+function InciarEventos() {
+  const btnAbrirSocio = document.getElementById("btnsocios");
   const btncerrarsesion = document.getElementById("btncerrarsesion");
 
-  actualizarHeader();
-
-  // Abrir modal
-  if (btnAbrir) {
-    btnAbrir.addEventListener("click", (e) => {
+  // Abrir modal desde header
+  if (btnAbrirSocio) {
+    btnAbrirSocio.addEventListener("click", (e) => {
       e.preventDefault();
-      if (modal) modal.style.display = "block";
+      const modal = document.getElementById("modalRegister");
+      if (modal) modal.classList.add("active");
     });
   }
-
-  // Cerrar modal
-  if (btnCerrar) {
-    btnCerrar.addEventListener("click", () => {
-      if (modal) modal.style.display = "none";
-      if (form) form.reset();
-    });
-  }
-
-  // Cerrar modal al hacer click fuera
-  window.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      modal.style.display = "none";
-      if (form) form.reset();
-    }
-  });
 
   // Cerrar sesión
   if (btncerrarsesion) {
@@ -62,12 +39,44 @@ document.addEventListener("DOMContentLoaded", () => {
       window.location.href = "/proyecto/index.php";
     });
   }
+}
+document.addEventListener("DOMContentLoaded", () => {
+  InciarEventos();
+  actualizarHeader();
+  
+  const modales = document.querySelectorAll(".modal");
+  const formRegister = document.getElementById("formRegister");
+  const formLogin = document.getElementById("formLogin");
 
-  // Enviar formulario
-  if (form) {
-    form.addEventListener("submit", async (e) => {
+  // Sistema genérico abrir/cerrar
+  document.querySelectorAll("[data-open]").forEach(link => {
+    link.addEventListener("click", e => {
       e.preventDefault();
+      const abrirId = link.getAttribute("data-open");
+      const cerrarId = link.getAttribute("data-close");
+      if (cerrarId) document.getElementById(cerrarId).classList.remove("active");
+      if (abrirId) document.getElementById(abrirId).classList.add("active");
+    });
+  });
 
+  document.querySelectorAll("[data-close]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const cerrarId = btn.getAttribute("data-close");
+      if (cerrarId) document.getElementById(cerrarId).classList.remove("active");
+    });
+  });
+
+  // Cerrar modal al hacer click fuera
+  modales.forEach(modal => {
+    modal.addEventListener("click", e => {
+      if (e.target === modal) modal.classList.remove("active");
+    });
+  });
+
+  // Registro
+  if (formRegister) {
+    formRegister.addEventListener("submit", async (e) => {
+      e.preventDefault();
       const data = {
         nombre: document.getElementById("nombre").value,
         fecha_nac: document.getElementById("fecha_nac").value,
@@ -75,21 +84,16 @@ document.addEventListener("DOMContentLoaded", () => {
         password: document.getElementById("password").value,
         metodo_pago: document.getElementById("metodo_pago").value
       };
-
       try {
         const res = await fetch("http://localhost:3000/socios/register", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(data)
         });
-
         const result = await res.json();
-
         if (res.ok) {
-          // Guardar sesión
           localStorage.setItem("token", result.token);
           localStorage.setItem("socio", JSON.stringify(result.socio));
-
           Swal.fire({
             title: "Usuario creado",
             text: "Bienvenido " + result.socio.nombre,
@@ -97,13 +101,12 @@ document.addEventListener("DOMContentLoaded", () => {
             confirmButtonText: "Aceptar",
             background: "#000",
             color: "#fff",
+            timer: 1000,
             confirmButtonColor: "#e50914"
           });
-
-          if (modal) modal.style.display = "none";
-          form.reset();
+          document.getElementById("modalRegister").classList.remove("active");
+          formRegister.reset();
           actualizarHeader();
-
         } else {
           Swal.fire({
             title: "Error",
@@ -115,7 +118,6 @@ document.addEventListener("DOMContentLoaded", () => {
             confirmButtonColor: "#e50914"
           });
         }
-
       } catch (err) {
         console.error(err);
         Swal.fire({
@@ -131,4 +133,60 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Login (lógica placeholder, podés conectar a tu endpoint real)
+  if (formLogin) {
+    formLogin.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const data = {
+        email: document.getElementById("emailLogin").value,
+        password: document.getElementById("passwordLogin").value
+      };
+      try {
+        const res = await fetch("http://localhost:3000/socios/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        });
+        const result = await res.json();
+        if (res.ok) {
+          localStorage.setItem("token", result.token);
+          localStorage.setItem("socio", JSON.stringify(result.socio));
+          Swal.fire({
+            title: "Bienvenido",
+            text: result.socio.nombre,
+            icon: "success",
+            confirmButtonText: "Aceptar",
+            background: "#000",
+            color: "#fff",
+            timer: 1000,
+            confirmButtonColor: "#e50914"
+          });
+          document.getElementById("modalLogin").classList.remove("active");
+          formLogin.reset();
+          actualizarHeader();
+        } else {
+          Swal.fire({
+            title: "Error",
+            text: result.error || "Credenciales inválidas",
+            icon: "error",
+            confirmButtonText: "Aceptar",
+            background: "#000",
+            color: "#fff",
+            confirmButtonColor: "#e50914"
+          });
+        }
+      } catch (err) {
+        console.error(err);
+        Swal.fire({
+          title: "Error",
+          text: "No se pudo conectar con el servidor",
+          icon: "error",
+          confirmButtonText: "Aceptar",
+          background: "#000",
+          color: "#fff",
+          confirmButtonColor: "#e50914"
+        });
+      }
+    });
+  }
 });

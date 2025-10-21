@@ -1,0 +1,84 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.player-card {
+    display: flex;
+    gap: 1.5rem;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    width: 95%;        /* casi toda la pantalla */
+    height: 90%; /* altura mínima para que se vea bien */
+    background-color: #f9f9f9;
+}
+
+.player-image-container {
+    position: relative;
+    width: 30rem;
+    height: 40rem;
+}
+
+#player-image {
+    width: 100%;
+    border-radius: 0.5rem;
+    display: block;
+}
+
+#player-dorsal {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background-color: #EC1C24;
+    color: white;
+    padding: 0.3rem 0.6rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border-radius: 0.25rem;
+    text-align: center;
+}
+
+.player-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#player-name {
+    background-color: #EC1C24;
+    color: white;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 0.25rem;
+}
+
+.player-info p {
+    font-size: 1rem;
+    line-height: 1.4rem;
+}
+
+.player-info .title {
+    color: rgb(99, 97, 97);
+    font-weight: normal;
+    margin-right: 0.3rem;
+    font-size: 1.2rem;
+}
+
+.player-info #posicion,
+.player-info #edad,
+.player-info #lugar_nac,
+.player-info #peso,
+.player-info #nacionalidad {
+    color: #EC1C24;
+    font-weight: bold;
+    font-style: italic;
+     font-size: 1.2rem;
+}

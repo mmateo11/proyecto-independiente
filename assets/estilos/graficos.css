@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ==================== SECCIÓN ESTADÍSTICAS ==================== */
+.estadisticas-section {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 4vw;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  background-color: #101010;
+}
+
+.estadisticas-section h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.graficos-container {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.goles-linea {
+  flex: 0 0 65%;
+  height: 30rem;
+  background-color: #1a1a1a;
+  padding: 1rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+  border-radius: 0.75rem;
+}
+
+.grafico-lateral {
+  flex: 0 0 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.grafico-lateral .grafico {
+  flex: 1;
+  background-color: #1a1a1a;
+  padding: 1rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+  border-radius: 0.75rem;
+  max-width: 100%;
+}
+
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100%;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 1000px) {
+  .estadisticas-section {
+    padding: 2rem; 
+  }
+
+  .graficos-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .goles-linea {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 25rem;
+  }
+
+  .grafico-lateral {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .grafico-lateral .grafico {
+    flex: 1 1 45%;
+    height: 15rem;
+  }
+}
+
+/* ==================== EXTRA: MÓVILES ==================== */
+@media (max-width: 600px) {
+  .estadisticas-section {
+    padding: 1.5rem;
+  }
+
+  .grafico-lateral .grafico {
+    width: 100%;
+    height: 12rem;
+  }
+}

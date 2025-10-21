@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sede Digital</title>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../../assets/estilos/socios.css" />
+    <link rel="stylesheet" href="../components/header.css" />
+
+    <!-- Scripts -->
+    <script src="../components/include-header.js"></script>
+    <script src="../socios/login.js"></script>
+  </head>
+
+  <body>
+    <div id="header-container"></div>
+
+    <div class="perfil-container">
+      <div class="perfil-socio">
+        <div class="perfil-body">
+          <div class="perfil-foto">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png"
+              alt="Foto de perfil"
+            />
+          </div>
+
+          <div class="perfil-info">
+            <h2 id="socioNombre"></h2>
+
+            <p class="email">
+              <i class="icon">📧</i>
+              <span id="socioEmail"></span>
+            </p>
+
+            <div class="campo">
+              <label>Método de pago</label>
+              <select id="socioPago"></select>
+            </div>
+
+            <div class="campo">
+              <label>Estado de cuota</label>
+              <div class="estado">
+                <span class="check">✔</span>
+                <span id="socioestado"></span>
+              </div>
+            </div>
+
+            <div class="botones">
+              <button class="btn rojo">EDITAR FOTO</button>
+              <button class="btn borde-rojo">CAMBIAR CONTRASEÑA</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const socio = JSON.parse(localStorage.getItem("socio"));
+
+      if (!socio) {
+        window.location.href = "index.php";
+      } else {
+        fetch(`http://localhost:3000/socios/${socio.id}`)
+          .then((res) => res.json())
+          .then((data) => {
+            document.getElementById("socioNombre").textContent = data.nombre;
+            document.getElementById("socioEmail").textContent = data.email;
+            document.getElementById("socioFecha").textContent = data.fecha_nac;
+            document.getElementById("socioPago").textContent = data.metodo_pago;
+            document.getElementById("socioestado").textContent = data.estado
+              ? "Cuota al día"
+              : "Cuota vencida";
+
+            localStorage.setItem("socio", JSON.stringify(data));
+          })
+          .catch((err) => console.error("Error al cargar socio:", err));
+      }
+    </script>
+  </body>
+</html>
