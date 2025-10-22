@@ -10,17 +10,7 @@ ol {
   list-style: none;
 }
 
-h2 {
-  margin-bottom: 3rem;
-  padding-bottom: 1rem;
-  font-size: 3rem;
-  line-height: 2rem;
-  font-weight: 700;
-  position: relative;
-  text-transform: capitalize;
-}
-
-h3 {
+.item-desc h3 {
   margin: 0 0 0.5rem;
   font-size: 1.75rem;
   line-height: 2rem;
@@ -31,9 +21,22 @@ button {
 }
 
 .line-title {
+  font-family: 'Fuente-titulo', sans-serif;
+  padding-bottom: 1rem;
+  font-size: 3rem;
+  line-height: 2rem;
+  position: relative;
+  transition: all 0.8s ease;
   color: white;
   position: relative;
   width: 24rem;
+  margin-left: 1rem;
+}
+
+.line-title:hover {
+  cursor: pointer;
+  letter-spacing: 0.2rem;
+  scale: calc(1.2);
 }
 
 .game-section {

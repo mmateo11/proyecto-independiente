@@ -123,7 +123,7 @@
     <!-- Multimedia -->
     <div class="container my-5">
       <div data-aos="fade-up">
-        <h1 class="multimedia-title">MULTIMEDIA</h1>
+        <h1 class="multimedia-title">Multimedia</h1>
       </div>
 
       <!-- Video principal -->
@@ -152,7 +152,9 @@
 
     <!-- Más noticias -->
     <section class="game-section">
-      <h2 class="line-title" data-aos="fade-right">Más Noticias</h2>
+      <div data-aos="fade-right">
+      <h2 class="line-title">Más Noticias</h2>
+      </div>
       <div class="owl-carousel custom-carousel owl-theme" data-aos="fade-left" data-aos-duration="900">
         <div class="item active">
           <div class="item-desc">
@@ -166,7 +168,7 @@
   <!-- Carrusel de jugadores -->
   <div class="carrousel-container">
     <div data-aos="fade-left">
-      <h1 class="carrousel-title">JUGADORES</h1>
+      <h1 class="carrousel-title">Jugadores</h1>
     </div>
     <div class="jugadores-carousel">
       <button class="jugadores-arrow jugadores-left"></button>
@@ -185,10 +187,12 @@
 
     <!-- Estafisticas -->
     <section class="estadisticas-section">
-
-      <h2>Estadísticas del Equipo</h2>
+          
+      <div data-aos="fade-up" data-aos="duration: 900">
+        <h2>Estadisticas Sobre El Equipo</h2>
+      </div>
       
-      <div class="graficos-container">
+      <div class="graficos-container" data-aos="zoom-in" data-aos-duration="1000">
 
         <div class="grafico goles-linea">
           <canvas id="golesLineaChart"></canvas>
@@ -209,27 +213,66 @@
     </section>
 
     <!-- Copas -->
-    <div class="copas-lista">
-      <div class="titulo">
-        <h2>Rey de copas</h2>
+    <section class="copas-section">
+
+      <div data-aos="fade-left">
+        <h2 class="titulo-copas">Rey de Copas</h2>
+        <p class="subtitulo-copas">TÍTULOS INTERNACIONALES</p>
       </div>
 
-      <a href="libertadores.html" class="copa-item">
-        <div class="copa-item-imgbox">
-          <img src="assets/img/copas/libertadores.png" alt="Libertadores" />
-          <span class="copa-cantidad">7</span>
-        </div>
-        <span class="copa-nombre">Libertadores</span>
-      </a>
+      <div class="copas-container" data-aos="fade-down" data-aos-duration="1100">
 
-      <a href="interamericana.html" class="copa-item">
-        <div class="copa-item-imgbox">
-          <img src="assets/img/copas/interamericana.png" alt="Interamericana" />
-          <span class="copa-cantidad">3</span>
+        <div class="copa">
+          <div class="copa-logo">
+            <img src="assets/img/copas/libertadores.png" alt="Copa Libertadores">
+            <span class="cantidad">7</span>
+          </div>
+          <p class="nombre">Copa <span>Libertadores</span></p>
         </div>
-        <span class="copa-nombre">Interamericana</span>
-      </a>
-    </div>
+
+        <div class="copa">
+          <div class="copa-logo">
+            <img src="assets/img/copas/interamericana.png" alt="Copa Interamericana">
+            <span class="cantidad">3</span>
+          </div>
+          <p class="nombre">Copa <span>Interamericana</span></p>
+        </div>
+
+        <div class="copa">
+          <div class="copa-logo">
+            <img src="assets/img/copas/intercontinental.png" alt="Copa Intercontinental">
+            <span class="cantidad">2</span>
+          </div>
+          <p class="nombre">Copa <span>Intercontinental</span></p>
+        </div>
+
+        <div class="copa">
+          <div class="copa-logo">
+            <img src="assets/img/copas/supercopa.png" alt="Supercopa Sudamericana">
+            <span class="cantidad">2</span>
+          </div>
+          <p class="nombre">Supercopa <span>Sudamericana</span></p>
+        </div>
+
+        <div class="copa">
+          <div class="copa-logo">
+            <img src="assets/img/copas/recopa.png" alt="Recopa Sudamericana">
+            <span class="cantidad">1</span>
+          </div>
+          <p class="nombre">Recopa <span>Sudamericana</span></p>
+        </div>
+
+        <div class="copa">
+          <div class="copa-logo">
+            <img src="assets/img/copas/sudamericana.png" alt="Copa Sudamericana">
+            <span class="cantidad">2</span>
+          </div>
+          <p class="nombre">Copa <span>Sudamericana</span></p>
+        </div>
+
+      </div>
+    </section>
+
 
     <?php include "pages/components/footer.php"; ?>
 

@@ -22,8 +22,8 @@ body {
 
 @font-face {
   font-family: 'Fuente-titulo';
-  src: url('../fonts/Devant-Medium.woff2') format('woff2'),
-       url('../fonts/Devant-Medium.woff2') format('woff');
+  src: url('../fonts/Stevie-Sans-Bold.woff') format('woff2'),
+       url('../fonts/Stevie-Sans-Bold.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -112,10 +112,9 @@ body {
 .multimedia-title {
   font-family: "Fuente-titulo", sans-serif;
   text-align: center;
-  font-size: 6rem;
+  font-size: 4rem;
   color: white;
-  margin-bottom: 4rem;
-  letter-spacing: 0.2rem;
+  margin-bottom: 6rem;
   transition: letter-spacing 0.5s, scale 0.3s;
 }
 
