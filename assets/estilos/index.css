@@ -20,6 +20,15 @@ body {
   background-attachment: fixed;
 }
 
+@font-face {
+  font-family: 'Fuente-titulo';
+  src: url('../fonts/Devant-Medium.woff2') format('woff2'),
+       url('../fonts/Devant-Medium.woff2') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 
 /* NOTICIAS */
 
@@ -101,10 +110,19 @@ body {
 /* MULTIMEDIA */
 
 .multimedia-title {
+  font-family: "Fuente-titulo", sans-serif;
   text-align: center;
-  font-size: 2rem;
+  font-size: 6rem;
   color: white;
   margin-bottom: 4rem;
+  letter-spacing: 0.2rem;
+  transition: letter-spacing 0.5s, scale 0.3s;
+}
+
+.multimedia-title:hover {
+  cursor: pointer;
+  letter-spacing: 0.4rem;
+  scale: calc(1.2);
 }
 
   iframe { 

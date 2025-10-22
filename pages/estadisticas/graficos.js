@@ -36,7 +36,6 @@ fetch(URL)
     const azul='#36A2EB';
     const amarillo='#FFCD56';
     const gris = '#808080';
-    const negro = '#000000';
 
     // --- Win Rate ---
     new Chart(document.getElementById('winRateChart'), {

@@ -111,7 +111,7 @@
         <li><a href="//facebook.com/Independiente" target="_blank"><span class="bi bi-facebook"></span></a></li>
         <li><a href="//youtube.com/independiente" target="_blank"><span class="bi bi-youtube"></span></a></li>
       </ul>
-
+ 
       <?php include "assets/svg/sponsors.php"; ?>
 
     </div>
@@ -122,7 +122,9 @@
 
     <!-- Multimedia -->
     <div class="container my-5">
-      <h1 class="multimedia-title" data-aos="fade-up">Multimedia</h1>
+      <div data-aos="fade-up">
+        <h1 class="multimedia-title">MULTIMEDIA</h1>
+      </div>
 
       <!-- Video principal -->
       <div class="row justify-content-center mb-4" >
@@ -135,12 +137,12 @@
 
       <!-- Videos secundarios -->
       <div class="row justify-content-center g-3">
-        <div class="col-6 col-md-4" data-aos="zoom-in-right">
+        <div class="col-6 col-md-4" data-aos="zoom-in-right" data-aos-duration="900">
           <div class="ratio ratio-16x9">
             <iframe src="https://www.youtube.com/embed/KCpFH_4KjNM" title="Video 2" allowfullscreen></iframe>
           </div>
         </div>
-        <div class="col-6 col-md-4" data-aos="zoom-in-left">
+        <div class="col-6 col-md-4" data-aos="zoom-in-left" data-aos-duration="900">
           <div class="ratio ratio-16x9">
             <iframe src="https://www.youtube.com/embed/uCjIZg5hMmk" title="Video 3" allowfullscreen></iframe>
           </div>
@@ -151,7 +153,7 @@
     <!-- Más noticias -->
     <section class="game-section">
       <h2 class="line-title" data-aos="fade-right">Más Noticias</h2>
-      <div class="owl-carousel custom-carousel owl-theme">
+      <div class="owl-carousel custom-carousel owl-theme" data-aos="fade-left" data-aos-duration="900">
         <div class="item active">
           <div class="item-desc">
             <h3></h3>
@@ -161,15 +163,25 @@
       </div>
     </section>
 
-    <!-- Carrusel de jugadores -->
-    <div class="carousel-container">
-      <button class="carousel-button prev">‹</button>
-      <div class="carousel-track-container">
-        <ul class="carousel-track">
-        </ul>
-      </div>
-      <button class="carousel-button next">›</button>
+  <!-- Carrusel de jugadores -->
+  <div class="carrousel-container">
+    <div data-aos="fade-left">
+      <h1 class="carrousel-title">JUGADORES</h1>
     </div>
+    <div class="jugadores-carousel">
+      <button class="jugadores-arrow jugadores-left"></button>
+      <div class="jugadores-track" data-aos="zoom-in"></div>
+      <button class="jugadores-arrow jugadores-right"></button>
+    </div>
+
+    <div class="jugadores-info">
+      <h2 class="jugadores-nombre"></h2>
+      <p class="jugadores-pos"></p>
+    </div>
+
+    <div class="jugadores-dots"></div>
+  </div>
+
 
     <!-- Estafisticas -->
     <section class="estadisticas-section">

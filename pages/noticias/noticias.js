@@ -107,17 +107,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 loop: false,
             });
 
-            // ---------- Evento click fluido ----------
-            div.addEventListener('click', () => {
-            const items = carousel.querySelectorAll('.item');
-            items.forEach(item => item.classList.remove('active'));
-            div.classList.add('active');
-
-            // Mover Owl al índice de la card clickeada
-            const index = Array.from(items).indexOf(div);
-            $(carousel).trigger('to.owl.carousel', [index, 300]); // 300ms animación
-        });
-
         AOS.refresh(); 
 
         } catch (error) {

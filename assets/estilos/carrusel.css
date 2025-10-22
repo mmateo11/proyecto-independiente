@@ -1,91 +1,210 @@
-.carousel-container {
-    background-image: url("../img/background-jugadores.jpg");
-    position: relative;
-    width: 100%;
+@font-face {
+  font-family: 'Fuente-titulo';
+  src: url('../fonts/Devant-Medium.woff2') format('woff2'),
+       url('../fonts/Devant-Medium.woff2') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
-/* Contenedor del track que permite el desplazamiento */
-.carousel-track-container {
-    overflow: hidden;
-    padding: 1.25rem 0;
+.carrousel-container {
+  background-image: url(../img/background-jugadores.jpg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-attachment: fixed;
 }
 
-/* La lista de tarjetas */
-.carousel-track {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    transition: transform 0.3s ease-in-out;
+.jugadores-carousel {
+  width: 100%;
+  max-width: 75rem; 
+  height: 27rem; 
+  position: relative;
+  perspective: 62.5rem; /* profundidad 3D */
+  margin-top: 3.75rem;
 }
 
-/* Estilo de cada tarjeta de jugador */
-.carousel-card {
-    flex-shrink: 0;
-    position: relative;
-    width: 17rem;
-    margin-right: 1.25rem;
-    background-color: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(0.3125rem);
-    border-radius: 0.75rem;
-    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
-    text-align: center;
-    padding: 1.25rem;
-    overflow: hidden;
+.jugadores-track {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transform-style: preserve-3d; /* mantiene el efecto 3D en hijos */
+  transition: all 0.8s ease;
 }
 
-.carousel-card:first-child {
-    margin-left: 3rem; 
+.carrousel-title {
+  font-family: 'Fuente-titulo', sans-serif;
+  font-size: 8rem;
+  color: white;
+  margin-top: 2rem;
+  transition: letter-spacing 0.8s ease, scale 0.3s ease;
 }
 
-/* Estilo de la imagen del jugador */
-.carousel-card-image {
-    width: 100%;
-    height: 15rem;
-    object-fit: cover;
-    border-radius: 0.5rem;
-    margin-bottom: 0.9rem;
+.carrousel-title:hover {
+  cursor: pointer;
+  letter-spacing: 0.3rem;
+  scale: calc(1.2);
 }
 
-/* Estilo para los textos */
-.carousel-card-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin: 0 0 0.3rem;
+.jugadores-card {
+  position: absolute;
+  width: 17.5rem;  
+  height: 18rem; 
+  border-radius: 2rem; 
+  overflow: hidden; /* oculta contenido que sobresalga */
+  background: white;
+  box-shadow: 0 0.93rem 2.5rem rgba(0, 0, 0, 0.15); 
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-.carousel-card-text {
-    font-size: 1rem;
-    color: #666;
-    margin: 0;
+.jugadores-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ajusta la imagen para cubrir el contenedor */
 }
 
-/* Estilos para los botones de navegación */
-.carousel-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    border: none;
-    padding: 0.5rem;
-    font-size: 3rem;
-    cursor: pointer;
-    border-radius: 70%;
-    z-index: 100;
-    transition: background-color 0.3s;
-    margin: 0 3rem;
+.jugadores-card.center {
+  z-index: 3;
+  transform: scale(1.1);
 }
 
-.carousel-button.prev {
-    left: -1.5rem;
+.jugadores-card.left-1 {
+  transform: translateX(-12.5rem) scale(0.9); 
+  opacity: 0.8;
+  filter: grayscale(80%);
 }
 
-.carousel-button.next {
-    right: -1.5rem;
+.jugadores-card.left-2 {
+  transform: translateX(-25rem) scale(0.8); 
+  opacity: 0.6;
+  filter: grayscale(100%);
 }
 
-.carousel-button:hover {
-    background-color: rgba(0, 0, 0, 0.7);
+.jugadores-card.right-1 {
+  transform: translateX(12.5rem) scale(0.9); 
+  opacity: 0.8;
+  filter: grayscale(80%);
 }
 
+.jugadores-card.right-2 {
+  transform: translateX(25rem) scale(0.8); 
+  opacity: 0.6;
+  filter: grayscale(100%);
+}
+
+.jugadores-card.hidden {
+  opacity: 0;
+  pointer-events: none; 
+}
+
+.jugadores-info {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+.jugadores-nombre {
+  font-size: 2.5rem;
+  color: white;
+  font-weight: bold; 
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease; 
+}
+
+.jugadores-nombre:hover {
+  color: black;
+  cursor: pointer;
+  scale: calc(1.2);
+}
+
+.jugadores-pos {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: white;
+  font-weight: bold; 
+  transition: all 0.3s ease; 
+  letter-spacing: 0.1em;
+}
+
+.jugadores-pos:hover {
+  color: black;
+  cursor: pointer;
+  scale: calc(1.2);
+}
+
+.jugadores-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem; 
+  margin: 2.5rem;
+}
+
+.jugadores-dot {
+  width: 0.75rem; 
+  height: 0.75rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.521);
+  cursor: pointer;
+}
+
+.jugadores-dot.active {
+  background: white
+}
+
+.jugadores-arrow {
+  width: 3rem;
+  height: 3rem;
+  background: transparent;
+  border: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease; /* animación al hacer hover */
+}
+
+.jugadores-left::before,
+.jugadores-right::before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  transition: all 0.3s ease; 
+}
+
+.jugadores-left::before {
+  border-width: 1rem 1.5rem 1rem 0;
+  border-color: transparent white transparent transparent;
+}
+
+.jugadores-right::before {
+  border-width: 1rem 0 1rem 1.5rem;
+  border-color: transparent transparent transparent white;
+}
+
+.jugadores-arrow:hover::before {
+  border-color: transparent black transparent transparent;
+}
+
+.jugadores-right:hover::before {
+  border-color: transparent transparent transparent black;
+}
+
+.jugadores-arrow:hover {
+  transform: translateY(-50%) scale(1.2);
+}
+
+.jugadores-left {
+  left: 0.1rem;
+}
+
+.jugadores-right {
+  right: 0.1rem; 
+}
