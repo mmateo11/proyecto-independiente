@@ -41,7 +41,6 @@
     <script src="/proyecto/pages/socios/login.js"></script>
     <script src="pages/components/include-header.js"></script>
 
-
     <!-- MODAL REGISTER -->
     <div id="modalRegister" class="modal">
       <div class="modal-content">
@@ -112,8 +111,8 @@
         <li><a href="//youtube.com/independiente" target="_blank"><span class="bi bi-youtube"></span></a></li>
       </ul>
  
-      <?php include "assets/svg/sponsors.php"; ?>
-
+      <div id="sponsors-container"></div>
+      <script src="pages/components/include-sponsors.js"></script>
     </div>
 
     <div class="noticias-principales">
@@ -274,8 +273,10 @@
     </section>
 
 
-    <?php include "pages/components/footer.php"; ?>
+    <div id="footer-container"></div>
+    <script src="pages/components/include-footer.js"></script>
 
+    
     <!-- JS AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         
