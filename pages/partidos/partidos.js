@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000/partidos"; // tu endpoint
+const API_URL = "/partidos"; // tu endpoint
 const container = document.getElementById("partidosContainer");
 const logos = {
     "independiente":"/proyecto/assets/img/logos/independiente.svg",
