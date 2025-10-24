@@ -4,11 +4,11 @@
   "type": "module",
   "main": "API/server.js",
   "scripts": {
-    "dev": "node API/server.js",
-    "start": "node API/server.js",
-    "build": "prisma generate && node build.js",
-    "postinstall": "prisma generate"
-  },
+  "build": "prisma generate --schema=API/prisma/schema.prisma && node build.js",
+  "postinstall": "prisma generate --schema=API/prisma/schema.prisma",
+  "dev": "node API/server.js",
+  "start": "node API/server.js"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
