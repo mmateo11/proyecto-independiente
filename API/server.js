@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// Servir archivos estáticos de la raíz (donde está index.html)
+// Servir archivos estáticos desde la raíz
 app.use(express.static(__dirname));
 
 // Ruta raíz -> devuelve index.html
@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// Rutas de la API
+// Tus rutas de la API
 TodasLasRutas(app);
 
 if (process.env.NODE_ENV !== "production") {
