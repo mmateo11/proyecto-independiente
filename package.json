@@ -4,8 +4,8 @@
   "type": "module",
   "main": "API/server.js",
   "scripts": {
-    "dev": "node index.js",
-    "start": "node index.js",
+    "dev": "node API/server.js",
+    "start": "node API/server.js",
     "build": "prisma generate && node build.js",
     "postinstall": "prisma generate"
   },
