@@ -4,10 +4,10 @@
   "type": "module",
   "main": "API/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon API/server.js",
-    "build": "npx prisma generate"
-  },
+  "postinstall": "prisma generate",
+  "dev": "nodemon index.js",
+  "test": "echo \"Error: no test specified\" && exit 1"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
