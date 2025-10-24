@@ -1,5 +1,5 @@
 {
-  "name": "Independiente",
+  "name": "independiente",
   "version": "1.0.0",
   "type": "module",
   "main": "API/server.js",
