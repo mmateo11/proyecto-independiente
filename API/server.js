@@ -16,7 +16,7 @@ app.use(express.static(__dirname));
 
 // Ruta raíz -> devuelve index.html
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.sendFile(path.resolve(__dirname, 'index.html'));
 });
 
 // Tus rutas de la API
