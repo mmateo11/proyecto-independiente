@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   //Cargar jugadores desde la API
   const obtenerJugadores = async () => {
     try {
-      const respuesta = await fetch("/jugadores");
+      const respuesta = await fetch("http://localhost:3000/jugadores");
       if (!respuesta.ok) throw new Error("Error al obtener jugadores");
       jugadores = await respuesta.json();
 

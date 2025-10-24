@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
         metodo_pago: document.getElementById("metodo_pago").value
       };
       try {
-        const res = await fetch("/socios/register", {
+        const res = await fetch("http://localhost:3000/socios/register", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(data)
@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
         password: document.getElementById("passwordLogin").value
       };
       try {
-        const res = await fetch("/socios/login", {
+        const res = await fetch("http://localhost:3000/socios/login", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(data)

@@ -1,28 +1,13 @@
 import express from 'express';
-import TodasLasRutas from './routes/index.js'; // Asegúrate que esta ruta es correcta
+import TodasLasRutas from './routes/index.js';
 import cors from 'cors';
 
 const app = express();
-
-// Middlewares
 app.use(express.json());
-// CORS: Es crucial para permitir peticiones desde tu frontend en Vercel.
-app.use(cors()); 
+app.use(cors());
 
-// Carga de todas las rutas de la API
-// Asumimos que TodasLasRutas es una función que recibe 'app' y agrega las rutas
-TodasLasRutas(app); 
+// Tus rutas de la API
+TodasLasRutas(app);
 
-// ** ESTE ES EL CAMBIO CLAVE PARA VERCEL **
-// No usamos app.listen() en producción. Vercel se encarga de iniciar el servidor.
-// Simplemente exportamos la aplicación Express configurada.
+app.listen(3000, () => console.log("Servidor local en http://localhost:3000"));
 
-// Configuramos una ruta de prueba para asegurar que Vercel encuentre el archivo
-app.get('/api/saludo', (req, res) => {
-    res.status(200).json({ mensaje: "Servidor Vercel funcionando correctamente!" });
-});
-
-
-// Usamos export default para ser compatible con módulos ES6 (.js)
-// Si usaras .cjs, usarías module.exports = app;
-export default app;
