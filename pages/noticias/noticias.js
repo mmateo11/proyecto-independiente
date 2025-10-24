@@ -1,3 +1,7 @@
+const API_URL = window.location.hostname.includes("localhost")
+  ? "http://localhost:3000"
+  : "https://proyecto-independiente.vercel.app/";  
+
 document.addEventListener('DOMContentLoaded', () => {
     const contPrincipal = document.querySelector('.noticias-principales'); // principales
     const carousel = document.querySelector('.custom-carousel');   // secundarias
@@ -51,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Función para cargar noticias principales ---
     const fetchAndRenderMainNews = async () => {
         try {
-            const response = await fetch('http://localhost:3000/noticias');
+            const response = await fetch(`${API_URL}/noticias`);
             if (!response.ok) throw new Error('No se pudieron cargar las noticias.');
 
             const noticias = await response.json();
