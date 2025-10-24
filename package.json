@@ -4,7 +4,7 @@
   "type": "module",
   "main": "API/server.js",
   "scripts": {
-  "build": "prisma generate --schema=API/prisma/schema.prisma && node build.js",
+  "build": "prisma generate --schema=API/prisma/schema.prisma",
   "postinstall": "prisma generate --schema=API/prisma/schema.prisma",
   "dev": "node API/server.js",
   "start": "node API/server.js"
