@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const contPrincipal = document.querySelector('.noticias-principales'); // principales
     const carousel = document.querySelector('.custom-carousel');   // secundarias
 
-    //Función para crear card de noticia principal ---
+    //Función para crear card de noticia principal
     const createPrincipalCard = (noticia) => {
         const div = document.createElement('div');
 
@@ -48,11 +48,11 @@ document.addEventListener('DOMContentLoaded', () => {
         return div;
     };
 
-    // --- Función para cargar noticias principales ---
+    //Función para cargar noticias principales
     const fetchAndRenderMainNews = async () => {
         try {
             const response = await fetch(`http://localhost:3000/noticias`);
-            if (!response.ok) throw new Error('No se pudieron cargar las noticias.');
+            if (!response.ok) Error('No se pudieron cargar las noticias.');
 
             const noticias = await response.json();
             if (!noticias || noticias.length === 0) return;
@@ -60,18 +60,15 @@ document.addEventListener('DOMContentLoaded', () => {
             contPrincipal.innerHTML = '';
             const principales = noticias.filter(n => n.tipo === "PRINCIPAL").slice(0, 3);
 
-            // Contenedor flex para principales
             const principalFlex = document.createElement('div');
             principalFlex.classList.add('principal-flex');
 
-            // Noticia grande (izquierda)
             if (principales[0]) {
                 const grande = createPrincipalCard(principales[0]);
                 grande.classList.add('noticia-grande');
                 principalFlex.appendChild(grande);
             }
 
-            // Contenedor para las dos noticias chicas (derecha)
             const chicasContainer = document.createElement('div');
             chicasContainer.classList.add('noticia-chicas-container');
 
@@ -86,7 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
             principalFlex.appendChild(chicasContainer);
             contPrincipal.appendChild(principalFlex);
 
-            // También renderizamos las secundarias en el carrusel
             const secundarias = noticias
                 .filter(n => n.tipo === "SECUNDARIO")
                 .sort((a, b) => new Date(b.fecha) - new Date(a.fecha))
@@ -106,8 +102,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 autoWidth: true,
                 loop: false,
             });
-
-        AOS.refresh(); 
 
         } catch (error) {
             console.error('Error cargando noticias:', error);
