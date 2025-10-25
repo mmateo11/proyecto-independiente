@@ -52,11 +52,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const fetchAndRenderMainNews = async () => {
         try {
             const response = await fetch(`/noticias`);
-            console.log('Fetch response:', response);
             if (!response.ok) throw new Error(`HTTP ${response.status} - No se pudieron cargar las noticias.`);
 
 
             const noticias = await response.json();
+            console.log(noticias);
             if (!noticias || noticias.length === 0) return;
 
             contPrincipal.innerHTML = '';
