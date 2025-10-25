@@ -22,9 +22,4 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: err.message || 'Error interno del servidor' });
 });
 
-// Solo local
-if (!process.env.PORT) {
-  app.listen(3000, () => console.log("Servidor local en http://localhost:3000"));
-}
-
 export default serverless(app);
