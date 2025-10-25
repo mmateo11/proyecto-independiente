@@ -5,16 +5,7 @@
     { "src": "/public/**", "use": "@vercel/static" }
   ],
   "routes": [
-    {
-      "src": "/api/(noticias|socios|jugadores|partidos)(.*)",
-      "dest": "/API/server.js"
-    },
-    {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/public/$1"
-    }
+    { "src": "/(noticias|socios|jugadores|partidos)(.*)", "dest": "/API/server.js" },
+    { "src": "/(.*)", "dest": "/public/$1" }
   ]
 }

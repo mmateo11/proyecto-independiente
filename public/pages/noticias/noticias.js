@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const API_URL = import.meta.env.API_URL || '';
             const response = await fetch(`${API_URL}/noticias`);
-            if (!response.ok) Error('No se pudieron cargar las noticias.');
+            if (!response.ok) throw new Error('No se pudieron cargar las noticias.');
 
             const noticias = await response.json();
             if (!noticias || noticias.length === 0) return;
