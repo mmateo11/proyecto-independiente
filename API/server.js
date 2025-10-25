@@ -6,7 +6,7 @@ import serverless from 'serverless-http';
 const app = express();
 app.use(express.json());
 app.use(cors());
-
+    
 // Tus rutas de la API
 TodasLasRutas(app);
 

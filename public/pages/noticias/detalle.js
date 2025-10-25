@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');
     try {
-        const API_URL = import.meta.env.API_URL || '';
-        const res = await fetch(`${API_URL}/noticias/${id}`);
+        
+        const res = await fetch(`/noticias/${id}`);
         if  (!res.ok) throw new Error('No se pudo cargar la noticia.');
         const noticia = await res.json();
 
