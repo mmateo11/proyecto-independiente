@@ -5,7 +5,7 @@
     { "src": "public/**", "use": "@vercel/static" }
   ],
   "routes": [
-    { "src": "/API/(.*)", "dest": "/API/server.js" },
+    { "src": "/(noticias|socios|jugadores|partidos)(.*)", "dest": "/API/server.js" },
     { "src": "/(.*)", "dest": "/public/$1" }
   ]
 }

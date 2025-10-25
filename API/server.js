@@ -6,10 +6,14 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-
-
-// Tus rutas de la API
+// Montar todas las rutas
 TodasLasRutas(app);
 
-app.listen(3000, () => console.log("Servidor local en http://localhost:3000"));
+// En Vercel NO usamos listen, pero localmente sí
+if (process.env.API_URL) {
+  app.listen(process.env.API_URL, () => console.log(`Servidor en puerto ${process.env.API_URL}`));
+} else {
+  app.listen(3000, () => console.log("Servidor local en http://localhost:3000"));
+}
 
+export default app;
