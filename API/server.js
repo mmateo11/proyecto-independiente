@@ -6,10 +6,25 @@ import serverless from 'serverless-http';
 const app = express();
 app.use(express.json());
 app.use(cors());
-    
-// Tus rutas de la API
+
+// Logging de cada request
+app.use((req, res, next) => {
+  console.log('REQUEST:', req.method, req.url);
+  next();
+});
+
+// Montar rutas
 TodasLasRutas(app);
 
-app.listen(3000, () => console.log("Servidor local en http://localhost:3000"));
-export default serverless(app);
+// Middleware de manejo de errores
+app.use((err, req, res, next) => {
+  console.error('ERROR EN BACKEND:', err);
+  res.status(500).json({ error: err.message || 'Error interno del servidor' });
+});
 
+// Solo local
+if (!process.env.PORT) {
+  app.listen(3000, () => console.log("Servidor local en http://localhost:3000"));
+}
+
+export default serverless(app);
