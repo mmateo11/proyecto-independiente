@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');
     try {
-        const res = await fetch(`/noticias/${id}`);
-        if (!res.ok) throw new Error('No se pudo cargar la noticia.');
+        const res = await fetch(`http://localhost:3000/noticias/${id}`);
+        if  (!res.ok) throw new Error('No se pudo cargar la noticia.');
         const noticia = await res.json();
 
         document.getElementById('detalle-titulo').textContent = noticia.titulo;
