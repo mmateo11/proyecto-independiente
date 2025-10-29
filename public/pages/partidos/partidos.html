@@ -10,22 +10,39 @@
     <script src="../components/include-header.js"></script> 
     <script src="../components/include-footer.js"></script> 
     <script src="../socios/login.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"/>
+
+    <!-- CSS AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
+
+<div id="header-container"></div>
+
 <body>
 
-    <div id="header-container">
-
-    </div>
-    
-    <div class="titulo">
-    <h1>Partidos de Independiente</h1>
+    <div class="titulo" data-aos="fade-up">
+        <h1>Próximos Partidos</h1>
     </div>
 
-    <main class="contenedor" id="partidosContainer">
+    <main data-aos="fade-right" class="contenedor" id="partidosContainer">
 
     </main>
-    <script src="./partidos.js"></script>
-    <div id="footer-container"></div>   
+    
+<script src="./partidos.js"></script> 
 
+<div id="footer-container"></div>
+
+<!-- JS AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        
+    <script>
+      AOS.init({
+          duration: 900,
+          once: false,
+          mirror: true,
+          easing: 'ease-out-cubic',
+          offset: 110
+        });
+    </script>
 </body>
 </html>

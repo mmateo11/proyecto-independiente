@@ -6,17 +6,22 @@
     <title>Detalles Noticias</title>
     <link rel="stylesheet" href="../../assets/estilos/noticias.css">
     <link rel="stylesheet" href="../components/header.css">
+    <link rel="stylesheet" href="../components/footer.css">
     <script src="../components/include-header.js"></script> 
+    <script src="../components/include-footer.js"></script> 
     <script src="../socios/login.js"></script>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"/>
+     <!-- CSS AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
+
     <div id="header-container"></div>
     
     <div class="detalle-noticia">
 
-        <a href="/proyecto/public/index.html">Volver</a>
-        <h1 id="detalle-titulo"></h1>
+        <a class="btn-volver" href="/proyecto/public/index.html">Volver</a>
+        <h1 data-aos="fade-left" id="detalle-titulo"></h1>
         <p id="detalle-resumen"><p>
         <img id="detalle-img" alt="Imagen de la noticia">
         <p id="detalle-descripcion"></p>
@@ -25,6 +30,21 @@
     </div>
 
     <script src="./detalle.js"></script>
+
+    <div id="footer-container"></div>
+
+    <!-- JS AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        
+    <script>
+      AOS.init({
+          duration: 900,
+          once: false,
+          mirror: true,
+          easing: 'ease-out-cubic',
+          offset: 110
+        });
+    </script>
     
 </body>
 </html>

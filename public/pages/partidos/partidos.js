@@ -1,23 +1,24 @@
 const API_URL = "http://localhost:3000/partidos"; // tu endpoint
 const container = document.getElementById("partidosContainer");
 const logos = {
-    "independiente":"/proyecto/assets/img/logos/independiente.svg",
-    "Boca Juniors": "/proyecto/assets/img/logos/Boca Juniors.svg",
-    "River Plate": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Escudo_del_CARiverPlate.svg",
-    "Racing": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Escudo_del_Club_Atl%C3%A9tico_Racing.svg",
-    };
+    "independiente": "/proyecto/public/assets/img/logos/independiente.svg",
+    "Boca Juniors": "/proyecto/public/assets/img/logos/Boca Juniors.svg",
+    "Atletico tucuman": "/proyecto/public/assets/img/logos/atletico tucuman.svg",
+    "Riestra": "/proyecto/public/assets/img/logos/Riestra.svg",
+    "Rosario Central": "/proyecto/public/assets/img/logos/rosario central.svg"
+    };  
 
 
 async function loadPartidos() {
     const res = await fetch(API_URL);   
     const partidos = await res.json();
 
-    container.innerHTML = ""; // limpiar antes de renderizar    
+    container.innerHTML = ""; 
 
     partidos.forEach((p, index) => {
         const partidoDiv = document.createElement("div");
         partidoDiv.classList.add("partido");
-        if (index === 0) partidoDiv.classList.add("proximo"); // marcar el primer partido como próximo
+        if (index === 0) partidoDiv.classList.add("proximo"); 
 
         partidoDiv.innerHTML = `
             <div class="equipos">

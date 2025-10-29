@@ -8,18 +8,27 @@
     <!-- Estilos -->
     <link rel="stylesheet" href="../../assets/estilos/socios.css" />
     <link rel="stylesheet" href="../components/header.css" />
+    <link rel="stylesheet" href="../components/footer.css" />
+
+    <!-- SweetAlert2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" />
+
 
     <!-- Scripts -->
     <script src="../components/include-header.js"></script>
+    <script src="../components/include-footer.js"></script>
     <script src="../socios/login.js"></script>
+
+    <!-- CSS AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   </head>
 
   <body>
     <div id="header-container"></div>
 
     <div class="perfil-container">
-      <div class="perfil-socio">
-        <div class="perfil-body">
+      <div class="perfil-socio" data-aos="zoom-in">
+        <div class="perfil-body" >
           <div class="perfil-foto">
             <img
               src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png"
@@ -35,10 +44,15 @@
               <span id="socioEmail"></span>
             </p>
 
-            <div class="campo">
-              <label>Método de pago</label>
-              <select id="socioPago"></select>
-            </div>
+           <div class="campo">
+            <label>Método de pago</label>
+            <select id="socioPago">
+              <option value="TARJETA">Tarjeta</option>
+              <option value="EFECTIVO">Efectivo</option>
+              <option value="TRANSFERENCIA">Transferencia</option>
+            </select>
+            <button id="guardarPago" class="btn borde-rojo">GUARDAR MÉTODO</button>
+          </div>
 
             <div class="campo">
               <label>Estado de cuota</label>
@@ -57,27 +71,97 @@
       </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+     <!-- JS AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        
     <script>
-      const socio = JSON.parse(localStorage.getItem("socio"));
-
-      if (!socio) {
-        window.location.href = "index.php";
-      } else {
-        fetch(`http://localhost:3000/socios/${socio.id}`)
-          .then((res) => res.json())
-          .then((data) => {
-            document.getElementById("socioNombre").textContent = data.nombre;
-            document.getElementById("socioEmail").textContent = data.email;
-            document.getElementById("socioFecha").textContent = data.fecha_nac;
-            document.getElementById("socioPago").textContent = data.metodo_pago;
-            document.getElementById("socioestado").textContent = data.estado
-              ? "Cuota al día"
-              : "Cuota vencida";
-
-            localStorage.setItem("socio", JSON.stringify(data));
-          })
-          .catch((err) => console.error("Error al cargar socio:", err));
-      }
+      AOS.init({
+          duration: 900,
+          once: false,
+          mirror: true,
+          easing: 'ease-out-cubic',
+          offset: 110
+        });
     </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const socio = JSON.parse(localStorage.getItem("socio"));
+
+          // Referencias a elementos
+          const socioPagoSelect = document.getElementById("socioPago");
+          const guardarPagoBtn = document.getElementById("guardarPago");
+
+          if (!socio) {
+            window.location.href = "index.html";
+            return;
+          }
+
+          // Traer datos del backend
+          fetch(`http://localhost:3000/socios/${socio.id}`)
+            .then((res) => res.json())
+            .then((data) => {
+              document.getElementById("socioNombre").textContent = data.nombre;
+              document.getElementById("socioEmail").textContent = data.email;
+              document.getElementById("socioFecha").textContent = data.fecha_nac;
+              document.getElementById("socioestado").textContent = data.estado
+                ? "Cuota al día"
+                : "Cuota vencida";
+
+              // Setear el valor del select al método de pago del backend
+              socioPagoSelect.value = data.metodo_pago;
+
+              localStorage.setItem("socio", JSON.stringify(data));
+            })
+            .catch((err) => console.error("Error al cargar socio:", err));
+
+          // Guardar cambio de método de pago
+          guardarPagoBtn.addEventListener("click", () => {
+            const nuevoMetodo = socioPagoSelect.value;
+
+            fetch(`http://localhost:3000/socios/${socio.id}`, {
+              method: "PUT",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ metodo_pago: nuevoMetodo })
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                if (data.success) {
+                  Swal.fire({
+                  title: "Método actualizado ✅",
+                  text: `Nuevo método: ${data.socio.metodo_pago}`,
+                  icon: "success",
+                  position: "top",
+                  toast: true,
+                  showConfirmButton: false,
+                  timer: 2000,
+                  background: "#EC1C24",
+                  color: "#fff",
+                  customClass: {
+                    popup: "swal2-rounded swal2-shadow"
+                  },
+                });
+              }
+              else {
+                Swal.fire({
+                title: "Error ❌",
+                text: "No se pudo actualizar el método de pago.",
+                icon: "error",
+                position: "top",
+                toast: true,
+                showConfirmButton: false,
+                timer: 2000,
+                background: "#222",
+                color: "#fff",
+              });
+              }
+              })
+              .catch((err) => console.error(err));
+          });
+        });
+      </script>
+
+    <div id="footer-container"></div>
   </body>
 </html>

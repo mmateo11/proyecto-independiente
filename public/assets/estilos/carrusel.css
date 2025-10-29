@@ -9,7 +9,7 @@
 .jugadores-carousel {
   width: 100%;
   max-width: 75rem; 
-  height: 27rem; 
+  height: 17rem; 
   position: relative;
   perspective: 62.5rem; /* profundidad 3D */
   margin-top: 3.75rem;
@@ -42,7 +42,7 @@
 
 .jugadores-card {
   position: absolute;
-  width: 17.5rem;  
+  width: 20rem;  
   height: 18rem; 
   border-radius: 2rem; 
   overflow: hidden; /* oculta contenido que sobresalga */
@@ -55,7 +55,8 @@
 .jugadores-card img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* ajusta la imagen para cubrir el contenedor */
+  object-fit: cover; /* muestra toda la imagen completa */
+  object-position: top; /* ajusta la imagen para cubrir el contenedor */
 }
 
 .jugadores-card.center {
@@ -98,6 +99,8 @@
 }
 
 .jugadores-nombre {
+  font-family: 'Fuente-titulo';
+  margin-top: 2rem;
   font-size: 2.5rem;
   color: white;
   font-weight: bold; 
@@ -112,6 +115,7 @@
 }
 
 .jugadores-pos {
+  font-family: 'Fuente-cuerpo';
   font-size: 1.2rem;
   text-transform: uppercase;
   color: white;
@@ -146,6 +150,7 @@
 }
 
 .jugadores-arrow {
+  z-index: 3;
   width: 3rem;
   height: 3rem;
   background: transparent;

@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         div.innerHTML = `
             <div class="item-desc">
                 <h3>${noticia.titulo || 'Sin título'}</h3>
-                <p>${noticia.descripcion || 'Sin resumen'}</p>
+                <p>${noticia.resumen || 'Sin resumen'}</p>
             </div>
         `;
 
@@ -51,12 +51,11 @@ document.addEventListener('DOMContentLoaded', () => {
     //Función para cargar noticias principales
     const fetchAndRenderMainNews = async () => {
         try {
-            const response = await fetch(`/noticias`);
+            const response = await fetch(`http://localhost:3000/noticias`);
             if (!response.ok) throw new Error(`HTTP ${response.status} - No se pudieron cargar las noticias.`);
 
 
             const noticias = await response.json();
-            console.log(noticias);
             if (!noticias || noticias.length === 0) return;
 
             contPrincipal.innerHTML = '';

@@ -110,6 +110,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       renderizarCarrusel();
       actualizarCarrusel(0);
+      AOS.refresh();
     } catch (error) {
       console.error("Hubo un error al cargar los jugadores:", error);
     }

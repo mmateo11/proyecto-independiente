@@ -1,8 +1,19 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Lecsya', Arial, sans-serif;
+@font-face {
+  font-family: 'Fuente-titulo';
+  src: url('/public/assets/fonts/Stevie-Sans-Bold.woff') format('woff2'),
+       url('/public/assets/fonts/Stevie-Sans-Bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+} 
+
+@font-face {
+  font-family: 'Fuente-cuerpo';
+  src: url('/public/assets/fonts/AlteHaasGroteskRegular.ttf') format('woff2'),
+       url('/public/assets/fonts/AlteHaasGroteskRegular.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 header {
@@ -28,7 +39,6 @@ header {
   height: 3rem;
 }
 
-/* Navegación / Botones */
 .botones-nav {
   display: flex;
   flex-wrap: wrap;
@@ -37,27 +47,25 @@ header {
 }
 
 .boton-link {
-  background-color: black;
+  font-family: 'Fuente-cuerpo';
+  background-color: #111;
   color: white;
-  border-radius: 1rem;
+  border-radius: 0.9rem;
   padding: 0.5rem 0.8rem;
   text-decoration: none;
   transition: all 0.3s ease;
   font-size: 1rem;
   font-weight: bold;
+  box-shadow: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.2);
 }
 
 .boton-link:hover {
-  background-color: rgba(0, 0, 0, 0.9);
-  color: #ff4d4d;
-  transform: translateY(-2px);
+  transform: translateY(-0.15rem);
+  color:#fa0c14
 }
+ 
 
-/* =========================================================
-   MEDIA QUERIES
-========================================================= */
-
-/* 🔹 Pantallas chicas (celulares <480px) */
+/*  Pantallas chicas (celulares <480px) */
 @media (max-width: 480px) {
   .boton-link {
     font-size: 0.9rem;

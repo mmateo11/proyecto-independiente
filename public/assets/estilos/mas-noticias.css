@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
-
 img {
   max-width: 100%;
   border: 0;
@@ -11,9 +9,16 @@ ol {
 }
 
 .item-desc h3 {
+  font-family: 'Fuente-titulo';
   margin: 0 0 0.5rem;
   font-size: 1.75rem;
   line-height: 2rem;
+}
+
+.item-desc p {
+  font-family: 'Fuente-cuerpo';
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
 }
 
 button {
@@ -54,6 +59,7 @@ button {
   width: 20rem;
   height: 25rem;
   display: flex;
+  padding-bottom: 5rem;
   align-items: flex-end;
   background: #343434 no-repeat center center / cover;
   border-radius: 1rem;
@@ -66,6 +72,7 @@ button {
 .game-section .item.active {
   width: 31rem;
   box-shadow: 1rem 2.5rem 2.5rem rgba(0, 0, 0, 0.25);
+  padding-bottom: 0.5rem;
 }
 
 .game-section .item:after {

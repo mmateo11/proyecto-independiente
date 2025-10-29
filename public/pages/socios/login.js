@@ -36,7 +36,7 @@ function InciarEventos() {
       localStorage.removeItem("token");
       localStorage.removeItem("socio");
       actualizarHeader();
-      window.location.href = "/proyecto/index.php";
+      window.location.href = "/proyecto/public/index.html";
     });
   }
 }

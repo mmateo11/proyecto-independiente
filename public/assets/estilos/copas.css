@@ -9,7 +9,6 @@
 .titulo-copas {
   font-family: 'Fuente-titulo', sans-serif;
   font-size: 3rem;
-  
   margin-bottom: .5rem;
 }
 
@@ -73,9 +72,11 @@
   color: #EC1C24;
   font-weight: 500;
   font-size: 1rem;
+  font-family: 'Fuente-cuerpo';
 }
 
 .nombre span {
+  font-family: 'Fuente-cuerpo';
   display: block;
   color: #222;
   font-weight: 600;

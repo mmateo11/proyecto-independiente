@@ -161,6 +161,46 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+// Actualizar método de pago de un socio
+router.put('/:id', async (req, res) => {
+  try {
+    const socioId = Number(req.params.id);
+    const { metodo_pago } = req.body;
 
+    if (!metodo_pago) {
+      return res.status(400).json({ success: false, error: 'Método de pago requerido' });
+    }
+
+    // Buscar socio
+    const socioExistente = await prisma.socios.findUnique({
+      where: { id: socioId }
+    });
+
+    if (!socioExistente) {
+      return res.status(404).json({ success: false, error: 'Socio no encontrado' });
+    }
+
+    // Actualizar método de pago
+    const socioActualizado = await prisma.socios.update({
+      where: { id: socioId },
+      data: { metodo_pago }
+    });
+
+    res.json({
+      success: true,
+      message: 'Método de pago actualizado',
+      socio: {
+        id: socioActualizado.id,
+        nombre: socioActualizado.nombre,
+        email: socioActualizado.email,
+        metodo_pago: socioActualizado.metodo_pago
+      }
+    });
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, error: 'Error al actualizar método de pago' });
+  }
+});
 
 export default router;

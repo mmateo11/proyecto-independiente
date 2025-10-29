@@ -1,0 +1,166 @@
+:root {
+      --rojo: #d40000;
+      --negro: #111;
+      --blanco: #fff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--negro);
+      color: var(--blanco);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: var(--rojo);
+      text-align: center;
+      letter-spacing: 0.05rem;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      list-style: none;
+      width: 100%;
+      max-width: 25rem;
+    }
+
+    li {
+      width: 100%;
+    }
+
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      color: var(--blanco);
+      background-color: var(--rojo);
+      padding: 1rem 2rem;
+      border-radius: 0.8rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    a:hover {
+      background-color: var(--blanco);
+      color: var(--negro);
+      transform: scale(1.05);
+    }
+
+     /* FORMULARIO */
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      background-color: var(--gris);
+      padding: 1.5rem;
+      border-radius: 1rem;
+      width: 100%;
+      max-width: 60rem;
+    }
+
+    input, select {
+      padding: 0.7rem;
+      border: 0.1rem solid var(--rojo);
+      border-radius: 0.5rem;
+      background-color: var(--negro);
+      color: var(--blanco);
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus, select:focus {
+      border-color: var(--blanco);
+    }
+
+    button {
+      background-color: var(--rojo);
+      color: var(--blanco);
+      border: none;
+      border-radius: 0.5rem;
+      padding: 0.7rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: var(--blanco);
+      color: var(--negro);
+      transform: scale(1.05);
+    }
+
+    /* TABLA GENERAL */
+    table {
+      width: 100%;
+      max-width: 80rem;
+      border-collapse: collapse;
+      border: 0.1rem solid var(--rojo);
+      background-color: var(--gris);
+      border-radius: 0.8rem;
+      overflow: hidden;
+    }
+
+    thead {
+      background-color: var(--rojo);
+    }
+
+    th, td {
+      padding: 0.9rem;
+      text-align: center;
+      font-size: 0.95rem;
+      border-bottom: 0.05rem solid var(--negro);
+    }
+
+    th {
+      color: var(--blanco);
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      letter-spacing: 0.05rem;
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: #191919;
+    }
+
+    tbody tr:hover {
+      background-color: var(--rojo);
+      color: var(--blanco);
+      transition: background 0.3s ease;
+    }
+
+    td button {
+      margin: 0 0.3rem;
+      padding: 0.4rem 0.8rem;
+      font-size: 0.85rem;
+      border-radius: 0.4rem;
+    }
+
+    @media (max-width: 768px) {
+      table {
+        font-size: 0.8rem;
+      }
+      form {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
