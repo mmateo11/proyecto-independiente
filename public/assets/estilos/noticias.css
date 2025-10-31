@@ -5,8 +5,8 @@
 }
 
 body {
-  background-color: #fff;
-  color: #000;
+  background-color: #0e0b0b;
+  color: hsl(0, 0%, 0%);
 }
 
 @font-face {
