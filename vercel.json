@@ -2,16 +2,10 @@
   "version": 2,
   "builds": [
     { "src": "API/server.js", "use": "@vercel/node" },
-    { "src": "public/**", "use": "@vercel/static" }
+    { "src": "public/**/*", "use": "@vercel/static" }
   ],
   "routes": [
-    {
-      "src": "/(noticias|socios|jugadores|partidos)(.*)",
-      "dest": "/API/server.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/public/$1"
-    }
+    { "src": "/API/(.*)", "dest": "/API/server.js" },
+    { "src": "/(.*)", "dest": "/public/$1" }
   ]
 }
