@@ -3,72 +3,69 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
-  url      = "mysql://root:@127.0.0.1:3306/independiente"
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
-enum TipoNoticia {
-  PRINCIPAL
-  SECUNDARIO
+model jugadores {
+  id               Int     @id @default(autoincrement())
+  nombre           String  @db.VarChar(191)
+  posicion         String  @db.VarChar(191)
+  dorsal           Int
+  url_imagen       String  @db.VarChar(191)
+  edad             Int?
+  lugar_nacimiento String? @db.VarChar(191)
+  nacionalidad     String? @db.VarChar(191)
+  peso             Float?
 }
 
-enum MetodoPago {
+model noticias {
+  id          Int          @id @default(autoincrement())
+  titulo      String       @db.VarChar(191)
+  tipo        tipo_noticia
+  descripcion String
+  fecha       DateTime     @default(now()) @db.Timestamp(6)
+  url_imagen  String       @db.VarChar(191)
+  resumen     String?      @db.VarChar(191)
+}
+
+model partidos {
+  id        Int        @id @default(autoincrement())
+  fecha     DateTime   @db.Timestamp(6)
+  rival     String     @db.VarChar(191)
+  resultado String?    @db.VarChar(191)
+  entradas  entradas[]
+}
+
+model entradas {
+  id          Int              @id @default(autoincrement())
+  id_partido  Int
+  id_socio    Int
+  valor       Float
+  metodo_pago metodo_pago_enum
+  partido     partidos         @relation(fields: [id_partido], references: [id])
+  socio       socios           @relation(fields: [id_socio], references: [id])
+}
+
+model socios {
+  id          Int        @id @default(autoincrement())
+  fecha_nac   DateTime   @db.Timestamp(6)
+  email       String     @unique @db.VarChar(191)
+  password    String     @db.VarChar(191)
+  metodo_pago String     @db.VarChar(191)
+  activo      Boolean    @default(true)
+  creado_en   DateTime   @default(now()) @db.Timestamp(6)
+  nombre      String     @db.VarChar(191)
+  entradas    entradas[]
+}
+
+enum metodo_pago_enum {
   EFECTIVO
   TARJETA
   TRANSFERENCIA
 }
 
-model jugadores {
-  id         Int    @id @default(autoincrement())
-  nombre     String
-  posicion   String
-  dorsal     Int
-  url_imagen String
-  edad             Int?     
-  nacionalidad     String? 
-  peso             Float?     //, kg
-  lugar_nacimiento String?  
+enum tipo_noticia {
+  PRINCIPAL
+  SECUNDARIO
 }
-
-model noticias {
-  id          Int         @id @default(autoincrement())
-  titulo      String
-  tipo        TipoNoticia
-  resumen     String?
-  descripcion String @db.Text 
-  fecha       DateTime    @default(now())
-  url_imagen  String
-}
-
-model partidos {
-  id        Int        @id @default(autoincrement())
-  fecha     DateTime
-  rival     String
-  resultado String?
-  entradas  entradas[]
-}
-
-model entradas {
-  id          Int        @id @default(autoincrement())
-  id_partido  Int
-  id_socio    Int
-  valor       Float
-  metodo_pago MetodoPago
-  partido     partidos   @relation(fields: [id_partido], references: [id])
-  socio       socios     @relation(fields: [id_socio], references: [id])
-}
-
-model socios {
-  id          Int         @id @default(autoincrement())
-  nombre      String
-  fecha_nac   DateTime
-  email       String      @unique
-  password    String
-  metodo_pago String
-  activo      Boolean     @default(true)
-  creado_en   DateTime    @default(now())
-
-  entradas    entradas[]
-}
-
-

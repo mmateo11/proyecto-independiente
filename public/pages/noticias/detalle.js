@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const id = params.get('id');
     try {
         
-        const res = await fetch(`http://localhost:3000/noticias/${id}`);
+        const res = await fetch(`/noticias/${id}`);
         if  (!res.ok) throw new Error('No se pudo cargar la noticia.');
         const noticia = await res.json();
 
