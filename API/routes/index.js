@@ -1,17 +1,13 @@
-import NoticiasRoutes from './Noticias.routes.js';
-import SociosRoutes from './socios.routes.js';
-import JugadoresRoutes from './jugadores.routes.js';
-import PartidosRoutes from './partidos.routes.js';
+import NoticiasRoutes from "./Noticias.routes.js";
+import SociosRoutes from "./socios.routes.js";
+import JugadoresRoutes from "./jugadores.routes.js";
+import PartidosRoutes from "./partidos.routes.js";
 
-function TodasLasRutas(app){
-app.use('/noticias', NoticiasRoutes);
-app.use('/socios', SociosRoutes);
-app.use('/jugadores', JugadoresRoutes);
-app.use('/partidos', PartidosRoutes);
+function TodasLasRutas(app) {
+  app.use("/api/noticias", NoticiasRoutes);
+  app.use("/api/socios", SociosRoutes);
+  app.use("/api/jugadores", JugadoresRoutes);
+  app.use("/api/partidos", PartidosRoutes);
 }
 
 export default TodasLasRutas;
-
-
-
-    
