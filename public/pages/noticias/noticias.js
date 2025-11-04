@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //Función para cargar noticias principales
     const fetchAndRenderMainNews = async () => {
         try {
-            const response = await fetch(`/api/routes/noticias`);
+            const response = await fetch(`/API/noticias`);
             if (!response.ok) throw new Error(`HTTP ${response.status} - No se pudieron cargar las noticias.`);
 
 
