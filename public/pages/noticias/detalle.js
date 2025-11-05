@@ -1,11 +1,14 @@
+const baseURL = window.location.hostname.includes("vercel.app")
+        ? "https://proyecto-independiente.vercel.app/api"
+        : "http://localhost:3000/api";
+
 document.addEventListener("DOMContentLoaded", async () => {
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');
     try {
         
-        const res = await fetch(`/api/noticias/${id}`)
-        .then(res => res.json())
-        .then(data => console.log(data));
+        const res = await fetch(`${baseURL}/noticias/${id}`)
+
         if  (!res.ok) throw new Error('No se pudo cargar la noticia.');
         const noticia = await res.json();
 
