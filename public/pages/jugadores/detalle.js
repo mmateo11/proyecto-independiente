@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');
     try {
-        const res = await fetch(`/api/jugadores/${id}`);
+        const res = await fetch(`${baseURL}/jugadores/${id}`);
         if (!res.ok) throw new Error('No se pudo cargar la noticia.');
         const jugador = await res.json();
 

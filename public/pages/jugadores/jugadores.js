@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     //Te lleva a la carta que fue clickeada, por medio de su índice
 
     tarjeta.addEventListener('click', () => {
-           window.location.href = 'pages/jugadores/detalle.html?id=' + jugador.id;
+           window.location.href = '/public/pages/jugadores/detalle.html?id=' + jugador.id;
         });
     return tarjeta;
   };
@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   //Cargar jugadores desde la API
   const obtenerJugadores = async () => {
     try {
-      const respuesta = await fetch("/api/jugadores");
+      const respuesta = await fetch(`${baseURL}/jugadores`);
       if (!respuesta.ok) throw new Error("Error al obtener jugadores");
       jugadores = await respuesta.json();
 

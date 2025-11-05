@@ -4,47 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalles Noticias</title>
-    <link rel="stylesheet" href="../../assets/estilos/noticias.css">
-    <link rel="stylesheet" href="../components/header.css">
-    <link rel="stylesheet" href="../components/footer.css">
-    <script src="../components/include-header.js"></script> 
-    <script src="../components/include-footer.js"></script> 
-    <script src="../socios/login.js"></script>
+
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="/public/assets/estilos/noticias.css">
+    <link rel="stylesheet" href="/public/pages/components/header.css">
+    <link rel="stylesheet" href="/public/pages/components/footer.css">
+    <link rel="stylesheet" href="/public/assets/estilos/login.css" />
+    <!-- SweetAlert2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" />
+
+
+    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"/>
-     <!-- CSS AOS -->
+
+    <!-- AOS CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 
+    <!-- Header dinámico -->
     <div id="header-container"></div>
-    
-    <div class="detalle-noticia">
 
-        <a class="btn-volver" href="../../index.html">Volver</a>
+    <!-- Contenido principal -->
+    <div class="detalle-noticia">
+        <a class="btn-volver" href="/public/index.html">Volver</a>
         <h1 data-aos="fade-left" id="detalle-titulo"></h1>
-        <p id="detalle-resumen"><p>
+        <p id="detalle-resumen"></p>
         <img id="detalle-img" alt="Imagen de la noticia">
         <p id="detalle-descripcion"></p>
         <p id="detalle-fecha"></p>
-    
     </div>
 
-    <script src="detalle.js"></script>
-
+    <!-- Footer dinámico -->
     <div id="footer-container"></div>
+
+    <!-- JS Header y Footer -->
+    <script src="/public/pages/socios/login.js" defer></script>
+    <script src="/public/pages/components/include-header.js" defer></script>
+    <script src="/public/pages/components/include-footer.js"></script>
+
+    <!-- Scripts funcionales -->
+    <script src="/public/pages/noticias/detalle.js"></script>
+     <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
 
     <!-- JS AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        
     <script>
-      AOS.init({
-          duration: 900,
-          once: false,
-          mirror: true,
-          easing: 'ease-out-cubic',
-          offset: 110
-        });
+            AOS.init({
+                duration: 900,
+                once: false,
+                mirror: true,
+                easing: 'ease-out-cubic',
+                offset: 110
+            });
     </script>
-    
+
 </body>
 </html>

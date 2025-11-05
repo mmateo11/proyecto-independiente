@@ -1,7 +1,3 @@
-  const baseURL = window.location.hostname.includes("vercel.app")
-        ? "https://proyecto-independiente.vercel.app/api"
-        : "http://localhost:3000/api";
-
 document.addEventListener('DOMContentLoaded', () => {
     const contPrincipal = document.querySelector('.noticias-principales'); // principales
     const carousel = document.querySelector('.custom-carousel');   // secundarias
@@ -20,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
 
         div.addEventListener('click', () => {
-           window.location.href = 'pages/noticias/detalle.html?id=' + noticia.id;
+           window.location.href = '/public/pages/noticias/detalle.html?id=' + noticia.id;
         });
 
         return div;

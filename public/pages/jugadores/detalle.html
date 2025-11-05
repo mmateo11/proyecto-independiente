@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalles Jugadores</title>
-    <link rel="stylesheet" href="../../assets/estilos/detalles_jugadores.css">
-    <link rel="stylesheet" href="../components/header.css">
-    <link rel="stylesheet" href="../components/footer.css">
-    <script src="../components/include-footer.js"></script> 
-    <script src="../components/include-header.js"></script> 
-    <script src="../socios/login.js"></script>
+    <link rel="stylesheet" href="/public/assets/estilos/detalles_jugadores.css">
+    <link rel="stylesheet" href="/public/pages/components/header.css">
+    <link rel="stylesheet" href="/public/pages/components/footer.css">
+    <link rel="stylesheet" href="/public/assets/estilos/login.css" />
+    <script src="/public/pages/components/include-footer.js"></script> 
+    <script src="/public/pages/components/include-header.js"></script>
+    <script src="/public/pages/socios/login.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"/>
+    <!-- SweetAlert2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" />
     <!-- CSS AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
@@ -18,7 +21,7 @@
 <body>
     <div id="header-container"></div>
     
-    <a data-aos="flip-up" id="btn-volver" class="btn-volver" href="/proyecto/public/index.html">Volver</a>
+    <a data-aos="flip-up" id="btn-volver" class="btn-volver" href="/public/index.html">Volver</a>
     <div class="player-card">
     <div class="player-image-container" data-aos="fade-right">
         <img id="player-image" alt="Foto del jugador">
@@ -39,11 +42,15 @@
     </div>
     </div>
 
-    <script src="/pages/jugadores/detalle.js"></script>
+    <script src="/public/pages/jugadores/detalle.js"></script>
+
     <div id="footer-container"></div>
 
     <!-- JS AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+     <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
         
     <script>
       AOS.init({

@@ -3,13 +3,9 @@ function includeHeader(selector, file) {
     .then(response => response.text())
     .then(data => {
       document.getElementById(selector).innerHTML = data;
-      if (typeof window.actualizarHeader === "function") {
-        window.actualizarHeader();
-      }
 
-      if (typeof window.InciarEventos === "function") {
-        window.InciarEventos();
-      }
+      // Avisar que el header ya se cargó
+      document.dispatchEvent(new CustomEvent('headerLoaded'));
     })
     .catch(error => console.error(`Error al cargar ${file}:`, error));
 }

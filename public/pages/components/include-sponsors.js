@@ -1,4 +1,4 @@
-function includeFooter(selector, file) {
+function includeSponsors(selector, file) {
   fetch(file)
     .then(response => response.text())
     .then(data => {
@@ -13,5 +13,5 @@ document.addEventListener("DOMContentLoaded", () => {
     ? "../assets/svg/sponsors.html"
     : "assets/svg/sponsors.html";
 
-  includeFooter("sponsors-container", filePath);
+  includeSponsors("sponsors-container", filePath);
 });

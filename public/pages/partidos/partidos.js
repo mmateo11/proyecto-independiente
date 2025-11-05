@@ -1,16 +1,15 @@
-const API_URL = "/api/partidos"; // tu endpoint
 const container = document.getElementById("partidosContainer");
 const logos = {
-    "independiente": "/proyecto/public/assets/img/logos/independiente.svg",
-    "Boca Juniors": "/proyecto/public/assets/img/logos/Boca Juniors.svg",
-    "Atletico tucuman": "/proyecto/public/assets/img/logos/atletico tucuman.svg",
-    "Riestra": "/proyecto/public/assets/img/logos/Riestra.svg",
-    "Rosario Central": "/proyecto/public/assets/img/logos/rosario central.svg"
+    "independiente": "/public/assets/img/logos/independiente.svg",
+    "Boca Juniors": "/public/assets/img/logos/Boca Juniors.svg",
+    "Atletico tucuman": "/public/assets/img/logos/atletico tucuman.svg",
+    "Riestra": "/public/assets/img/logos/Riestra.svg",
+    "Rosario Central": "/public/assets/img/logos/rosario central.svg"
     };  
 
 
 async function loadPartidos() {
-    const res = await fetch(API_URL);   
+    const res = await fetch(`${baseURL}/partidos`);   
     const partidos = await res.json();
 
     container.innerHTML = ""; 

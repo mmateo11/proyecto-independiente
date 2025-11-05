@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="../../assets/estilos/socios.css" />
     <link rel="stylesheet" href="../components/header.css" />
     <link rel="stylesheet" href="../components/footer.css" />
+    <link rel="stylesheet" href="/public/assets/estilos/login.css" />
+    <!-- SweetAlert2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" />
 
     <!-- SweetAlert2 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" />
@@ -75,7 +78,9 @@
 
      <!-- JS AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+
     <script>
       AOS.init({
           duration: 900,
@@ -99,7 +104,7 @@
           }
 
           // Traer datos del backend
-          fetch(`http://localhost:3000/socios/${socio.id}`)
+          fetch(`${baseURL}/socios/${socio.id}`)
             .then((res) => res.json())
             .then((data) => {
               document.getElementById("socioNombre").textContent = data.nombre;
@@ -120,7 +125,7 @@
           guardarPagoBtn.addEventListener("click", () => {
             const nuevoMetodo = socioPagoSelect.value;
 
-            fetch(`http://localhost:3000/socios/${socio.id}`, {
+            fetch(`${baseURL}/socios/${socio.id}`, {
               method: "PUT",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({ metodo_pago: nuevoMetodo })

@@ -1,3 +1,7 @@
+const baseURL = window.location.hostname.includes("vercel.app")
+  ? "https://proyecto-independiente.vercel.app/api"
+  : "http://localhost:3000/api";
+
 function actualizarHeader() {
   const btnAbrir = document.getElementById("btnsocios");
   const btnsededigital = document.getElementById("btnsededigital");
@@ -15,11 +19,10 @@ function actualizarHeader() {
   }
 }
 
-
 function InciarEventos() {
   const btnAbrirSocio = document.getElementById("btnsocios");
   const btncerrarsesion = document.getElementById("btncerrarsesion");
-
+  
   // Abrir modal desde header
   if (btnAbrirSocio) {
     btnAbrirSocio.addEventListener("click", (e) => {
@@ -36,14 +39,16 @@ function InciarEventos() {
       localStorage.removeItem("token");
       localStorage.removeItem("socio");
       actualizarHeader();
-      window.location.href = "/proyecto/public/index.html";
+      window.location.href = "/public/index.html";
     });
   }
 }
-document.addEventListener("DOMContentLoaded", () => {
+
+// TODO lo relacionado con el header se inicializa cuando ya está cargado
+document.addEventListener('headerLoaded', () => {
   InciarEventos();
   actualizarHeader();
-  
+
   const modales = document.querySelectorAll(".modal");
   const formRegister = document.getElementById("formRegister");
   const formLogin = document.getElementById("formLogin");
@@ -85,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
         metodo_pago: document.getElementById("metodo_pago").value
       };
       try {
-        const res = await fetch("/socios/register", {
+        const res = await fetch(`${baseURL}/socios/register`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(data)
@@ -133,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Login (lógica placeholder, podés conectar a tu endpoint real)
+  // Login
   if (formLogin) {
     formLogin.addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -142,7 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
         password: document.getElementById("passwordLogin").value
       };
       try {
-        const res = await fetch("/socios/login", {
+        const res = await fetch(`${baseURL}/socios/login`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(data)
