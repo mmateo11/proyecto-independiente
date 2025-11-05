@@ -5,8 +5,7 @@ const logos = {
     "Atletico tucuman": "/public/assets/img/logos/atletico_tucuman.svg",
     "Riestra": "/public/assets/img/logos/Riestra.svg",
     "Rosario Central": "/public/assets/img/logos/rosario_central.svg"
-    };  
-
+    }; 
 
 async function loadPartidos() {
     const res = await fetch(`${baseURL}/partidos`);   
