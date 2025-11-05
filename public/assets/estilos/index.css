@@ -1,15 +1,21 @@
-/* BASE */
+/* Ajustes generales*/
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+html, body {
+  width: 100%;
+  overflow-x: hidden; /* evita scroll horizontal */
 }
 
-html {
-  width: 100%;
-  min-height: 100%;
-  overflow-x: hidden;
+* {
+  box-sizing: border-box; /* ya lo tenías */
+  margin: 0;
+  padding: 0;
+  max-width: 100%; /* evita que elementos se salgan */
+}
+
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+  display: block; /* elimina espacio extra debajo de imagen/iframe */
 }
 
 body {
@@ -38,7 +44,7 @@ body {
   font-display: swap;
 }
 
-/* NOTICIAS */
+/* Seccion de noticias principales */
 
 .principal-flex {
   background-color: #EC1C24;
@@ -114,7 +120,7 @@ body {
   box-shadow: 0 8px 32px rgba(0,0,0,0.25), 0 1.5px 6px rgba(0,0,0,0.18);
 }
 
-/* MULTIMEDIA */
+/* Seccion de multimedia (videos) */
 
 .multimedia-title {
   font-family: "Fuente-titulo", sans-serif;
@@ -137,7 +143,7 @@ body {
   max-width: 100%;  
 }
 
-/* SPONSORS Y REDES */
+/* Sponsors y redes */
 
 #cabecera {
   background-color: #EC1C24;
@@ -173,12 +179,11 @@ body {
   fill: #fff;  
 }
 
-/* MEDIA QUERIES */
+/* Media Queries */
 
-/* Pantallas chicas (móviles) */
 @media (max-width: 576px) {
-  #cabecera {
-    padding: 1rem 1rem;
+  body {
+    overflow-x: hidden;
   }
 
   .sponsor-logo {
@@ -188,30 +193,30 @@ body {
   .principal-flex {
     flex-direction: column;
     height: auto;
-    padding: 1.5rem;
+    padding: 1rem; /* reduce padding para no generar overflow */
+    gap: 1rem;
   }
 
   .noticia-grande,
   .noticia-chica {
-    height: 20rem;
-  }
-
-  .noticia-grande p {
-    display: none;
+    width: 100%; /* obligatorio en columnas flex */
+    height: auto;
   }
 
   .titulo-noticias {
     font-size: 1.5rem;
     padding: 0.5rem 1rem;
+    width: 100%; /* que no se salga */
+  }
+
+  iframe {
+    width: 100%; /* que no se desborde */
   }
 }
 
+
 /* Pantallas medianas (tablets) */
 @media (min-width: 577px) and (max-width: 1023px) {
-  
-  #cabecera {
-  padding: 1rem 1rem;
-  }
 
   .sponsor-logo {
     display: none;

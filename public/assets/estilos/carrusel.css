@@ -204,3 +204,23 @@
 .jugadores-right {
   right: 0.1rem; 
 }
+
+@media (max-width: 576px) {
+  .jugadores-card {
+    width: 17rem;
+    height: 15rem;
+  }
+
+  .jugadores-arrow {
+    width: 1rem;
+    height: 1rem;
+    margin: 1rem;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 1023px) {
+  .jugadores-card {
+    width: 17rem;
+    height: 15rem;
+  }
+}

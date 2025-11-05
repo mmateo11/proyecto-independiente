@@ -109,7 +109,6 @@
             .then((data) => {
               document.getElementById("socioNombre").textContent = data.nombre;
               document.getElementById("socioEmail").textContent = data.email;
-              document.getElementById("socioFecha").textContent = data.fecha_nac;
               document.getElementById("socioestado").textContent = data.estado
                 ? "Cuota al día"
                 : "Cuota vencida";

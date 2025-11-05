@@ -113,50 +113,50 @@ button {
   z-index: 5;
 }
 
-@media (min-width: 62rem) and (max-width: 75rem) {
-  h2 {
-    margin-bottom: 2rem;
-  }
+/* GENERAL */
+.owl-carousel {
+  overflow: hidden;
+}
 
-  h3 {
-    margin: 0 0 0.5rem;
-    font-size: 1.5rem;
-  }
-
+@media (max-width: 576px) {
   .game-section {
-    padding: 3rem 2rem;
+    padding: 2rem 1.5rem 2rem; /* más espacio horizontal y margen inferior */
+    margin-bottom: 2rem; /* separa del borde inferior */
   }
 
   .game-section .item {
-    margin: 0 0.75rem 3.5rem;
-    width: 16rem;
-    height: 22rem;
+    margin: 0 0.5rem 2.5rem;
+    width: 12.5rem;
+    height: 17.5rem;
+    border-radius: 1rem;
   }
 
   .game-section .item.active {
-    width: 25rem;
+    width: 16.5rem; /* ajustado para no generar overflow */
+    box-shadow: 0.5rem 1rem 1rem rgba(0, 0, 0, 0.25);
+    padding-bottom: 0.5rem;
   }
 
   .game-section .item-desc {
+    padding: 0 1rem 0.5rem;
     transform: translateY(calc(100% - 3rem));
+  }
+
+  .item-desc h3 {
+    font-size: 1.3rem; /* un poco más legible */
+    line-height: 1.6rem;
+  }
+
+  .item-desc p {
+    font-size: 0.95rem;
+    line-height: 1.4rem;
   }
 }
 
-@media (min-width: 48rem) and (max-width: 62rem) {
-  h2 {
-    margin-bottom: 2rem;
-  }
-
-  h3 {
-    font-size: 1.5rem;
-  }
-
-  .line-title {
-    width: 20rem;
-  }
-
+@media (min-width: 577px) and (max-width: 1023px) {
   .game-section {
     padding: 3rem 2rem 2.5rem;
+    margin-bottom: 2rem;
   }
 
   .game-section .item {
@@ -169,38 +169,42 @@ button {
     width: 22rem;
   }
 
-  .game-section .item-desc {
-    transform: translateY(calc(100% - 3rem));
+  .item-desc h3 {
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+  }
+
+  .item-desc p {
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 }
 
-@media (max-width: 48rem) {
-  h3 {
-    font-size: 1.25rem;
-    line-height: 1.5rem;
-  }
-
+@media (min-width: 1024px) {
   .game-section {
-    padding: 2rem 1rem 1rem;
+    padding: 4rem 3rem;
+    margin-bottom: 3rem; /* separa de otros contenidos */
   }
 
   .game-section .item {
-    margin: 0 0.5rem 2.5rem;
-    width: 12.5rem;
-    height: 17.5rem;
+    margin: 0 1rem 4rem;
+    width: 20rem;
+    height: 25rem;
   }
 
   .game-section .item.active {
-    width: 17rem;
-    box-shadow: 0.5rem 1rem 1rem rgba(0, 0, 0, 0.25);
+    width: 31rem;
   }
 
-  .game-section .item-desc {
-    padding: 0 1rem 0.5rem;
-    transform: translateY(calc(100% - 3rem));
+  .item-desc h3 {
+    font-size: 1.75rem;
+    line-height: 2rem;
+  }
+
+  .item-desc p {
+    font-size: 1rem;
+    line-height: 1.6rem;
   }
 }
 
-.owl-carousel {
-  overflow: hidden;
-}
+
