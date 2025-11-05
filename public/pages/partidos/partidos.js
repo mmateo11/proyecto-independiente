@@ -2,9 +2,9 @@ const container = document.getElementById("partidosContainer");
 const logos = {
     "independiente": "/public/assets/img/logos/independiente.svg",
     "Boca Juniors": "/public/assets/img/logos/Boca Juniors.svg",
-    "Atletico tucuman": "/public/assets/img/logos/atletico tucuman.svg",
+    "Atletico tucuman": "/public/assets/img/logos/atletico_tucuman.svg",
     "Riestra": "/public/assets/img/logos/Riestra.svg",
-    "Rosario Central": "/public/assets/img/logos/rosario central.svg"
+    "Rosario Central": "/public/assets/img/logos/rosario_central.svg"
     };  
 
 
