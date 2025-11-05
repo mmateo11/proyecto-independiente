@@ -206,6 +206,12 @@
 }
 
 @media (max-width: 576px) {
+  .carrousel-title:hover {
+    cursor: pointer;
+    letter-spacing: 0.1rem;
+    scale: calc(1.2);
+  }
+
   .jugadores-card {
     width: 17rem;
     height: 15rem;

@@ -1,7 +1,19 @@
+html, body {
+  width: 100%;
+  overflow-x: hidden; /* evita scroll horizontal */
+}
+
 * {
-  box-sizing: border-box;
+  box-sizing: border-box; /* ya lo tenías */
   margin: 0;
   padding: 0;
+  max-width: 100%; /* evita que elementos se salgan */
+}
+
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+  display: block; /* elimina espacio extra debajo de imagen/iframe */
 }
 
 body {
