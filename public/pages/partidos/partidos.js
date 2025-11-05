@@ -32,7 +32,9 @@ async function loadPartidos() {
             <div class="info">
                 <div class="fecha">${new Date(p.fecha).toLocaleDateString()}</div>
                 <div class="resultado">${p.resultado || '-'}</div>
-                <button class="btn-comprar">Comprar entrada</button>
+                <a target="blank" href="https://www.boleteriavip.com.ar/">
+                    <button class="btn-comprar">Comprar entrada</button>
+                </a>
             </div>
         `;
 

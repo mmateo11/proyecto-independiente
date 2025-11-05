@@ -12,9 +12,8 @@ html, body {
   max-width: 100%; /* evita que elementos se salgan */
 }
 
-img, video, iframe {
+img, video {
   max-width: 100%;
-  height: auto;
   display: block; /* elimina espacio extra debajo de imagen/iframe */
 }
 
@@ -137,12 +136,6 @@ body {
   scale: calc(1.2);
 }
 
-  iframe { 
-  border-radius: 0.5rem;
-  box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.3);
-  max-width: 100%;  
-}
-
 /* Sponsors y redes */
 
 #cabecera {
@@ -190,6 +183,17 @@ body {
     display: none;
   }
 
+  
+  #cabecera {
+  padding: 1rem 1rem;
+  justify-content: center;
+  align-items: center;           
+  } 
+
+  #sociales {
+    padding-left: 0rem;
+  }
+
   .principal-flex {
     flex-direction: column;
     height: auto;
@@ -207,10 +211,6 @@ body {
     font-size: 1.5rem;
     padding: 0.5rem 1rem;
     width: 100%; /* que no se salga */
-  }
-
-  iframe {
-    width: 100%; /* que no se desborde */
   }
 
   .multimedia-title:hover {

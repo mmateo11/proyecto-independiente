@@ -1,4 +1,3 @@
-/* ==================== BASE ==================== */
 header {
   display: flex;
   justify-content: space-between;
@@ -8,7 +7,6 @@ header {
   width: 100%;
   height: 5rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
 }
 
 .logo {
@@ -17,19 +15,19 @@ header {
   cursor: pointer;
 }
 
-svg {
+.logo svg {
   filter: drop-shadow(0 0.5rem 1rem rgba(0, 0, 0, 0.473));
 }
 
-.borde, svg {
+.logg .borde, svg {
   transition: all 0.5s ease;
 }
 
-svg:hover {
+ .logo svg:hover {
   scale: calc(1.07);
 }
 
-svg:hover .borde {
+.logo svg:hover .borde {
   fill: rgb(255, 255, 255) !important;
 }
 
@@ -58,7 +56,6 @@ svg:hover .borde {
   color: #fa0c14;
 }
 
-
 @media (max-width: 650px) {
   header {
     flex-direction: row;
@@ -75,6 +72,25 @@ svg:hover .borde {
   .boton-link {
     font-size: 0.85rem;
     padding: 0.4rem 0.6rem;
+  }
+}  
+
+@media (max-width: 440px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 8rem;
+    padding: 1rem 0.5rem;
+  }
+
+
+  .logo {
+    margin-bottom: 0.6rem;
+  }
+  .botones-nav {
+    justify-content: center;
+
   }
 }
 
