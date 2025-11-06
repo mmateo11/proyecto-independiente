@@ -7,63 +7,63 @@
 </head>
 <body>
 
-     <!-- MODAL REGISTER -->
+    <!-- MODAL REGISTER -->
     <div id="modalRegister" class="modal">
-      <div class="modal-content">
-        <span class="cerrar" data-close="modalRegister">&times;</span>
-        <h2>Hacerse Socio</h2>
+        <div class="modal-content">
+            <span class="cerrar" data-close="modalRegister">&times;</span>
+            <h2>Hacerse Socio</h2>
 
-        <form id="formRegister" method="POST">
-          <label for="nombre">Nombre y Apellido</label>
-          <input type="text" id="nombre" name="nombre" required />
+            <form id="formRegister" method="POST">
+                <label for="nombre">Nombre y Apellido</label>
+                <input type="text" id="nombre" name="nombre" required />
 
-          <label for="fecha_nac">Fecha de Nacimiento</label>
-          <input type="date" id="fecha_nac" name="fecha_nac" required />
+                <label for="fecha_nac">Fecha de Nacimiento</label>
+                <input type="date" id="fecha_nac" name="fecha_nac" required />
 
-          <label for="email">Correo</label>
-          <input type="email" id="email" name="email" required />
+                <label for="email">Correo</label>
+                <input type="email" id="email" name="email" required />
 
-          <label for="password">Contraseña</label>
-          <input type="password" id="password" name="password" required />
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" required />
 
-          <label for="metodo_pago">Método de Pago</label>
-          <select id="metodo_pago" name="metodo_pago" required>
-            <option value="EFECTIVO">Efectivo</option>
-            <option value="TARJETA">Tarjeta</option>
-            <option value="TRANSFERENCIA">Transferencia</option>
-          </select>
+                <label for="metodo_pago">Método de Pago</label>
+                <select id="metodo_pago" name="metodo_pago" required>
+                    <option value="EFECTIVO">Efectivo</option>
+                    <option value="TARJETA">Tarjeta</option>
+                    <option value="TRANSFERENCIA">Transferencia</option>
+                </select>
 
-          <button type="submit">Registrarse</button>
+                <button type="submit">Registrarse</button>
 
-          <p class="texto-login">
-            ¿Ya tenés cuenta?
-            <a href="#" data-open="modalLogin" data-close="modalRegister">Iniciá sesión</a>
-          </p>
-        </form>
-      </div>
+                <p class="texto-login">
+                    ¿Ya tenés cuenta?
+                    <a href="#" data-open="modalLogin" data-close="modalRegister">Iniciá sesión</a>
+                </p>
+            </form>
+        </div>
     </div>
 
+    <!-- MODAL LOGIN -->
     <div id="modalLogin" class="modal">
-      <div class="modal-content">
-        <span class="cerrar" data-close="modalLogin">&times;</span>
+        <div class="modal-content">
+            <span class="cerrar" data-close="modalLogin">&times;</span>
+            <h2>Iniciar Sesión</h2>
 
-        <h2>Iniciar Sesión</h2>
+            <form id="formLogin" method="POST">
+                <label for="emailLogin">Correo</label>
+                <input type="email" id="emailLogin" name="email" required />
 
-        <form id="formLogin" method="POST">
-          <label for="emailLogin">Correo</label>
-          <input type="email" id="emailLogin" name="email" required />
+                <label for="passwordLogin">Contraseña</label>
+                <input type="password" id="passwordLogin" name="password" required />
 
-          <label for="passwordLogin">Contraseña</label>
-          <input type="password" id="passwordLogin" name="password" required />
+                <button type="submit">Entrar</button>
 
-          <button type="submit">Entrar</button>
-
-          <p class="texto-login">
-            ¿No tenés cuenta?
-            <a href="#" data-open="modalRegister" data-close="modalLogin">Registrate</a>
-          </p>
-        </form>
-      </div>
+                <p class="texto-login">
+                    ¿No tenés cuenta?
+                    <a href="#" data-open="modalRegister" data-close="modalLogin">Registrate</a>
+                </p>
+            </form>
+        </div>
     </div>
 
     <header>
@@ -84,7 +84,7 @@
             </g>
             </svg>
         </a>
-            
+
         <div class="botones-nav">
             <a class="boton-link" href="/public/pages/partidos/partidos.html">Entradas Digitales</a>
             <a class="boton-link" id="btnsocios" href="#">Asociate</a>
@@ -93,6 +93,6 @@
         </div>
     </header>
 
-<script src="/public/pages/socios/login.js"></script>
+    <script src="/public/pages/socios/login.js"></script>
 </body>
 </html>

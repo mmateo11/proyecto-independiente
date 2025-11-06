@@ -1,27 +1,36 @@
 const container = document.getElementById("partidosContainer");
+
+// Logos de los equipos
 const logos = {
     "independiente": "/public/assets/img/logos/independiente.svg",
     "Boca Juniors": "/public/assets/img/logos/Boca Juniors.svg",
     "atletico tucuman": "/public/assets/img/logos/atletico_tucuman.svg",
     "Riestra": "/public/assets/img/logos/Riestra.svg",
     "rosario central": "/public/assets/img/logos/rosario_central.svg"
-    }; 
+}; 
 
+// Función para cargar los partidos desde la API
 async function loadPartidos() {
     const res = await fetch(`${baseURL}/partidos`);   
     const partidos = await res.json();
 
     container.innerHTML = ""; 
 
+    // Recorrer todos los partidos
     partidos.forEach((p, index) => {
+        // Crear un div para cada partido
         const partidoDiv = document.createElement("div");
         partidoDiv.classList.add("partido");
+
+        // Marcar el primer partido como "próximo"
         if (index === 0) partidoDiv.classList.add("proximo"); 
 
+        // Insertar contenido HTML del partido
         partidoDiv.innerHTML = `
             <div class="equipos">
                 <div class="equipo">
-                    <img src="${logos["independiente"] || 'https://via.placeholder.com/50'}" alt="independiente">                    <span>Independiente</span>
+                    <img src="${logos["independiente"] || 'https://via.placeholder.com/50'}" alt="Independiente">
+                    <span>Independiente</span>
                 </div>
                 <div class="vs">VS</div>
                 <div class="equipo">
@@ -32,15 +41,16 @@ async function loadPartidos() {
             <div class="info">
                 <div class="fecha">${new Date(p.fecha).toLocaleDateString()}</div>
                 <div class="resultado">${p.resultado || '-'}</div>
-                <a target="blank" href="https://www.boleteriavip.com.ar/">
+                <a target="_blank" href="https://www.boleteriavip.com.ar/">
                     <button class="btn-comprar">Comprar entrada</button>
                 </a>
             </div>
         `;
 
+        // Agregar el div del partido al contenedor principal
         container.appendChild(partidoDiv);
     });
 }
 
+// Llamar a la función para cargar los partidos al iniciar la página
 loadPartidos();
-

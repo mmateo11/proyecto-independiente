@@ -27,7 +27,7 @@
   padding: 2rem;
   border-radius: 1rem;
   width: 100%;
-  max-width: 32rem; /* tamaño fijo máximo */
+  max-width: 32rem; 
   max-height: 90vh;
   text-align: center;
   color: #fff;
@@ -112,7 +112,6 @@
   color: #ccc;
 }
 
-/* Cerrar botón */
 .cerrar {
   position: absolute;
   top: 0.5rem; 

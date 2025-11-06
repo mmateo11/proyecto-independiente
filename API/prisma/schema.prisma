@@ -3,48 +3,62 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider = "postgresql" //tipo de proveedor de bd
+  url      = env("DATABASE_URL") //link con base de datos 
 }
 
+// Enums: lista cerrada de opciones
+enum metodo_pago_enum {
+  EFECTIVO
+  TARJETA
+  TRANSFERENCIA
+}
+
+enum tipo_noticia {
+  PRINCIPAL
+  SECUNDARIO
+}
+
+// Tablas
 model jugadores {
-  id               Int     @id @default(autoincrement())
+  id               Int     @id @default(autoincrement()) // id del jugador
   nombre           String  @db.VarChar(191)
   posicion         String  @db.VarChar(191)
   dorsal           Int
   url_imagen       String  @db.VarChar(191)
-  edad             Int?
-  lugar_nacimiento String? @db.VarChar(191)
-  nacionalidad     String? @db.VarChar(191)
-  peso             Float?
+  edad             Int
+  lugar_nacimiento String @db.VarChar(191)
+  nacionalidad     String @db.VarChar(191)
+  peso             Float
 }
 
 model noticias {
   id          Int          @id @default(autoincrement())
   titulo      String       @db.VarChar(191)
-  tipo        tipo_noticia
+  tipo        tipo_noticia // enum tipo de noticia
   descripcion String
   fecha       DateTime     @default(now()) @db.Timestamp(6)
   url_imagen  String       @db.VarChar(191)
-  resumen     String?      @db.VarChar(191)
+  resumen     String      @db.VarChar(191)
 }
 
 model partidos {
   id        Int        @id @default(autoincrement())
   fecha     DateTime   @db.Timestamp(6)
   rival     String     @db.VarChar(191)
-  resultado String?    @db.VarChar(191)
-  entradas  entradas[]
+  resultado String    @db.VarChar(191)
+  entradas  entradas[] // relación con entradas
 }
 
 model entradas {
-  id          Int              @id @default(autoincrement())
-  id_partido  Int
-  id_socio    Int
-  valor       Float
-  metodo_pago metodo_pago_enum
-  partido     partidos         @relation(fields: [id_partido], references: [id])
-  socio       socios           @relation(fields: [id_socio], references: [id])
+  id          Int              @id @default(autoincrement()) 
+  id_partido  Int           
+  id_socio    Int             
+  valor       Float           
+  metodo_pago metodo_pago_enum 
+
+  partido     partidos @relation(fields: [id_partido], references: [id])
+  socio       socios   @relation(fields: [id_socio], references: [id])   
 }
 
 model socios {
@@ -56,16 +70,5 @@ model socios {
   activo      Boolean    @default(true)
   creado_en   DateTime   @default(now()) @db.Timestamp(6)
   nombre      String     @db.VarChar(191)
-  entradas    entradas[]
-}
-
-enum metodo_pago_enum {
-  EFECTIVO
-  TARJETA
-  TRANSFERENCIA
-}
-
-enum tipo_noticia {
-  PRINCIPAL
-  SECUNDARIO
+  entradas    entradas[] // relación con entradas
 }

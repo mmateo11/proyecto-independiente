@@ -1,4 +1,3 @@
-/* ==================== SECCIÓN ESTADÍSTICAS ==================== */
 .estadisticas-section {
   display: flex;
   flex-direction: column;
@@ -31,7 +30,7 @@
 }
 
 .goles-linea {
-  flex: 0 0 65%;
+  flex: 0 0 65%; /* No crece ni se encoge, ocupa 65% */
   height: 30rem;
   background-color: #1a1a1a;
   padding: 1rem;
@@ -60,7 +59,6 @@ canvas {
   height: 100% !important;
 }
 
-/* ==================== MÓVILES: <576px ==================== */
 @media (max-width: 576px) {
 
   .graficos-container {
@@ -72,7 +70,7 @@ canvas {
   .goles-linea {
     flex: 0 0 100%;
     width: 100%;
-    height: 25rem; /* altura estándar */
+    height: 25rem;
     padding: 1rem;
   }
 
@@ -99,7 +97,6 @@ canvas {
 
 }
 
-/* ==================== TABLETS: 577px – 1023px ==================== */
 @media (min-width: 577px) and (max-width: 1023px) {
 
   .estadisticas-section {
@@ -115,12 +112,12 @@ canvas {
   .goles-linea {
     flex: 0 0 100%;
     width: 100%;
-    height: 20rem; /* altura moderada */
+    height: 20rem; 
     padding: 1rem;
   }
 
   .grafico-lateral {
-    flex-direction: row; /* dos gráficos al lado */
+    flex-direction: row; 
     justify-content: center;
     align-items: flex-start;
     gap: 1rem;
@@ -133,7 +130,6 @@ canvas {
   }
 }
 
-/* ==================== DESKTOP: >1024px ==================== */
 @media (min-width: 1024px) {
 
   .estadisticas-section {
@@ -150,7 +146,7 @@ canvas {
   .goles-linea {
     flex: 0 0 65%;
     width: 65%;
-    height: 30rem; /* altura estándar */
+    height: 30rem; 
     padding: 1rem;
   }
 
@@ -167,5 +163,3 @@ canvas {
   }
 
 }
-
-

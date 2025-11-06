@@ -71,12 +71,11 @@
 
 .player-image-container img {
     width: 100%;
-    height: 35rem; /* más altura */
+    height: 35rem;
     object-fit: cover;
     border-radius: 1rem;
 }
 
-/* Dorsal */
 #player-dorsal {
     font-family: 'Fuente-titulo';
     position: absolute;
@@ -94,7 +93,6 @@
     border-radius: 0.5rem;
 }
 
-/* Información del jugador */
 .player-info {
     flex: 1;
     display: flex;
@@ -103,7 +101,6 @@
     gap: 1rem;
 }
 
-/* Nombre con estilo más vistoso */
 .player-info h2 {
     font-family: 'Fuente-titulo';
     background-color: #EC1C24;
@@ -124,7 +121,6 @@
     letter-spacing: 0.1rem;
 }
 
-/* Datos del jugador */
 .player-info p {
     font-size: 1.25rem;
     display: flex;
@@ -145,7 +141,6 @@
     font-weight: 600;
 }
 
-/* Responsive */
 @media (max-width: 30rem) {
     .player-card {
         flex-direction: column;
@@ -157,7 +152,7 @@
 
     .player-image-container {
         width: 70%;
-        height: 25rem; /* ajustar altura en móvil */
+        height: 25rem; 
         margin-bottom: 1rem;
     }
 

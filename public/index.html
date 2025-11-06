@@ -6,7 +6,6 @@
   <title>INDEPENDIENTE</title>
   <link rel="icon" href="/public/assets/img/logos/independiente.svg" type="image/svg+xml">
 
-  <!-- Bootstrap & estilos -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"/>
   <link rel="stylesheet" href="assets/estilos/index.css" />
@@ -18,8 +17,8 @@
   <link rel="stylesheet" href="assets/estilos/copas.css" />
   <link rel="stylesheet" href="assets/estilos/detalles_jugadores.css" />
   <link rel="stylesheet" href="assets/estilos/graficos.css" />
-  
-  <!-- CSS AOS -->
+
+  <!-- Animaciones AOS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <!-- jQuery -->
@@ -30,36 +29,41 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
-  <!-- SweetAlert2 -->
+  <!-- SweetAlert2 para alertas -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" />
 
+  <!-- Lite YouTube Embed para videos -->
   <script type="module" src="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.0/src/lite-yt-embed.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.0/src/lite-yt-embed.css">
 </head>
 
 <body>
 
+    <!-- Header -->
     <div id="header-container"></div>
 
+    <!-- Scripts de login y header -->
     <script src="pages/socios/login.js" defer></script>
     <script src="pages/components/include-header.js" defer></script>
 
+    <!-- Redes sociales y sponsors -->
     <div class="d-flex n-wrap" id="cabecera">
-
       <ul class="d-flex gap-4" id="sociales">
         <li><a href="//x.com/Independiente" target="_blank"><span class="bi bi-twitter"></span></a></li>
         <li><a href="//instagram.com/caindepedi" target="_blank"><span class="bi bi-instagram"></span></a></li>
         <li><a href="//facebook.com/Independiente" target="_blank"><span class="bi bi-facebook"></span></a></li>
         <li><a href="//youtube.com/independiente" target="_blank"><span class="bi bi-youtube"></span></a></li>
       </ul>
- 
+
+      <!-- Contenedor de sponsors -->
       <div id="sponsors-container"></div>
       <script src="pages/components/include-sponsors.js"></script>
     </div>
 
+    <!-- Noticias principales -->
     <div class="noticias-principales"></div>
 
-    <!-- Multimedia -->
+    <!-- Sección Multimedia -->
     <div class="container my-5">
       <div data-aos="fade-up">
         <h1 class="multimedia-title">Multimedia</h1>
@@ -81,6 +85,7 @@
             <lite-youtube videoid="KCpFH_4KjNM"></lite-youtube>
           </div>
         </div>
+
         <div class="col-6 col-md-4" data-aos="zoom-in-left" data-aos-duration="900">
           <div class="ratio ratio-16x9">
             <lite-youtube videoid="uCjIZg5hMmk"></lite-youtube>
@@ -89,10 +94,10 @@
       </div>
     </div>
 
-    <!-- Más noticias -->
+    <!-- Sección Más Noticia -->
     <section class="game-section">
       <div data-aos="fade-right">
-      <h2 class="line-title">Más Noticias</h2>
+        <h2 class="line-title">Más Noticias</h2>
       </div>
       <div class="owl-carousel custom-carousel owl-theme" data-aos="fade-left" data-aos-duration="900">
         <div class="item active">
@@ -104,33 +109,32 @@
       </div>
     </section>
 
-  <!-- Carrusel de jugadores -->
-  <div class="carrousel-container">
-    <div data-aos="fade-left">
-      <h1 class="carrousel-title">Jugadores</h1>
+    <!-- Carrusel de jugadores -->
+    <div class="carrousel-container">
+      <div data-aos="fade-left">
+        <h1 class="carrousel-title">Jugadores</h1>
+      </div>
+      <div class="jugadores-carousel">
+        <button class="jugadores-arrow jugadores-left"></button>
+        <div class="jugadores-track" data-aos="zoom-in"></div>
+        <button class="jugadores-arrow jugadores-right"></button>
+      </div>
+
+      <div class="jugadores-info">
+        <h2 class="jugadores-nombre"></h2>
+        <p class="jugadores-pos"></p>
+      </div>
+
+      <div class="jugadores-dots"></div>
     </div>
-    <div class="jugadores-carousel">
-      <button class="jugadores-arrow jugadores-left"></button>
-      <div class="jugadores-track" data-aos="zoom-in"></div>
-      <button class="jugadores-arrow jugadores-right"></button>
-    </div>
 
-    <div class="jugadores-info">
-      <h2 class="jugadores-nombre"></h2>
-      <p class="jugadores-pos"></p>
-    </div>
-
-    <div class="jugadores-dots"></div>
-  </div>
-
-
-    <!-- Estafisticas -->
+    <!-- Estadísticas del equipo -->
     <section class="estadisticas-section">
-          
+
       <div data-aos="fade-up" data-aos="duration: 900">
         <h2>Estadisticas Sobre El Equipo</h2>
       </div>
-      
+
       <div class="graficos-container" data-aos="zoom-in" data-aos-duration="1000">
 
         <div class="grafico goles-linea">
@@ -145,13 +149,13 @@
           <div class="grafico goles">
             <canvas id="golesChart"></canvas>
           </div>
+
         </div>
 
       </div>
-
     </section>
 
-    <!-- Copas -->
+    <!-- Sección Copas -->
     <section class="copas-section">
 
       <div data-aos="fade-left">
@@ -160,7 +164,7 @@
       </div>
 
       <div class="copas-container" data-aos="fade-down" data-aos-duration="1100">
-
+        
         <div class="copa">
           <div class="copa-logo">
             <img src="assets/img/copas/libertadores.png" alt="Copa Libertadores">
@@ -212,14 +216,12 @@
       </div>
     </section>
 
-
+    <!-- Footer -->
     <div id="footer-container"></div>
     <script src="pages/components/include-footer.js"></script>
 
-    
-    <!-- JS AOS -->
+    <!-- AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        
     <script>
       AOS.init({
           duration: 800,
@@ -227,21 +229,21 @@
           mirror: true,
           easing: 'ease-out-cubic',
           offset: 110
-        });
+      });
     </script>
 
-    <!-- Chart.js -->
+    <!-- Chart.js para gráficos -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
 
-    <!-- SCRIPTS -->
+    <!-- Scripts de la página -->
     <script src="pages/noticias/noticias.js"></script>
     <script src="pages/estadisticas/graficos.js"></script>
     <script src="pages/jugadores/jugadores.js"></script>
 
     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -2,36 +2,45 @@
 <html lang="es">
 <head>  
   <meta charset="UTF-8">
-  <title>Admin - Jugadores</title>
+  <title>Admin - Partidos</title>
   <link rel="stylesheet" href="../admin.css">
 </head>
+
 <body>
-  
-  <a href="../index.html">Volver Atras</a>
+  <!-- Back pagina principal -->
+  <a href="../index.html">Volver Atrás</a>
 
-  <h1>Panel de Administración - Partidos </h1>
+  <h1>Panel de Administración - Partidos</h1>
 
-    <form id="partidoForm">
-        <input type="hidden" id="partidoId">
-        <input type="text" id="rival" placeholder="rival" required>
-        <input type="number" id="golesLocal" placeholder="Goles Independiente" min="0" required>
-        <input type="number" id="golesRival" placeholder="Goles Rival" min="0" required>
-        <input type="date" id="fecha" name="fecha" required>
-        <button type="submit">Guardar</button>
-    </form>
+  <!-- Formulario para crear o editar partidos -->
+  <form id="partidoForm">
+    <!-- ID oculto, usado solo al editar -->
+    <input type="hidden" id="partidoId">
 
+    <input type="text" id="rival" placeholder="Rival" required>
+    <input type="number" id="golesLocal" placeholder="Goles Independiente" min="0" required>
+    <input type="number" id="golesRival" placeholder="Goles Rival" min="0" required>
+    <input type="date" id="fecha" name="fecha" required>
+
+    <button type="submit">Guardar</button>
+  </form>
+
+  <!-- Tabla que muestra todos los partidos registrados -->
   <table>
     <thead>
       <tr>
         <th>Rival</th>
         <th>Resultado</th>
-        <th>fecha</th>
+        <th>Fecha</th>
         <th>Acciones</th>
       </tr>
     </thead>
+
+    <!-- Cuerpo dinámico generado desde JavaScript -->
     <tbody id="partidoTable"></tbody>
   </table>
 
+  <!-- Script con la lógica del panel -->
   <script src="./partidos.js"></script>
 </body>
 </html>

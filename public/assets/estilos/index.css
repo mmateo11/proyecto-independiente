@@ -1,20 +1,18 @@
-/* Ajustes generales*/
-
 html, body {
   width: 100%;
   overflow-x: hidden; /* evita scroll horizontal */
 }
 
 * {
-  box-sizing: border-box; /* ya lo tenías */
+  box-sizing: border-box; 
   margin: 0;
   padding: 0;
-  max-width: 100%; /* evita que elementos se salgan */
+  max-width: 100%;
 }
 
 img, video {
   max-width: 100%;
-  display: block; /* elimina espacio extra debajo de imagen/iframe */
+  display: block;
 }
 
 body {
@@ -210,7 +208,7 @@ body {
   .titulo-noticias {
     font-size: 1.5rem;
     padding: 0.5rem 1rem;
-    width: 100%; /* que no se salga */
+    width: 100%;
   }
 
   .multimedia-title:hover {
@@ -221,9 +219,6 @@ body {
 
   }
 
-
-
-/* Pantallas medianas (tablets) */
 @media (min-width: 577px) and (max-width: 1023px) {
 
   .sponsor-logo {
@@ -243,7 +238,6 @@ body {
   }
 }
 
-/* Pantallas grandes (notebooks / tele) */
 @media (min-width: 1024px) {
   .content {
     display: flex;

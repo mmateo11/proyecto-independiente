@@ -3,11 +3,15 @@ img {
   border: 0;
 }
 
-ul,
-ol {
+ul, ol {
   list-style: none;
 }
 
+button {
+  outline: none;
+}
+
+/* --- Títulos de los items --- */
 .item-desc h3 {
   font-family: 'Fuente-titulo';
   margin: 0 0 0.5rem;
@@ -15,64 +19,64 @@ ol {
   line-height: 2rem;
 }
 
+/* --- cuerpo de los items --- */
 .item-desc p {
   font-family: 'Fuente-cuerpo';
   margin: 0 0 0.5rem;
   font-size: 1rem;
 }
 
-button {
-  outline: none;
-}
-
+/* --- Título principal de la seccion --- */
 .line-title {
   font-family: 'Fuente-titulo', sans-serif;
+  color: white;
   padding-bottom: 1rem;
   font-size: 3rem;
   line-height: 2rem;
-  position: relative;
-  transition: all 0.8s ease;
-  color: white;
-  position: relative;
   width: 24rem;
   margin-left: 1rem;
+  position: relative;
+  transition: all 0.8s ease;
 }
 
 .line-title:hover {
   cursor: pointer;
   letter-spacing: 0.2rem;
-  scale: calc(1.2);
+  scale: 1.2;
 }
 
+/* --- Contenedor principal de la seccion --- */
 .game-section {
   padding: 4rem 3rem;
   margin-top: 10rem;
 }
 
 .game-section .owl-stage {
-  margin: 1rem 0;
   display: flex;
+  margin: 1rem 0;
 }
 
+/* --- Tarjetas del carrusel --- */
 .game-section .item {
-  margin: 0 1rem 4rem;
   width: 20rem;
   height: 25rem;
+  margin: 0 1rem 4rem;
   display: flex;
-  padding-bottom: 5rem;
   align-items: flex-end;
+  padding-bottom: 5rem;
   background: #343434 no-repeat center center / cover;
   border-radius: 1rem;
   overflow: hidden;
   position: relative;
-  transition: all 0.4s ease-in-out;
   cursor: pointer;
+  transition: all 0.4s ease-in-out;
 }
 
+/* --- Tarjeta activa (la destacada) --- */
 .game-section .item.active {
   width: 31rem;
-  box-shadow: 1rem 2.5rem 2.5rem rgba(0, 0, 0, 0.25);
   padding-bottom: 0.5rem;
+  box-shadow: 1rem 2.5rem 2.5rem rgba(0, 0, 0, 0.25);
 }
 
 .game-section .item:after {
@@ -82,12 +86,13 @@ button {
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
 }
 
+/* --- Contenedor del texto dentro de cada tarjeta --- */
 .game-section .item-desc {
-  padding: 0 1.5rem 1rem;
   color: #fff;
   position: relative;
   z-index: 1;
   overflow: hidden;
+  padding: 0 1.5rem 1rem;
   transform: translateY(calc(100% - 3rem));
   transition: all 0.4s ease-in-out;
 }
@@ -96,6 +101,7 @@ button {
   transform: none;
 }
 
+/* --- Texto de la descripción con animación --- */
 .game-section .item-desc p {
   opacity: 0;
   transform: translateY(2rem);
@@ -107,34 +113,34 @@ button {
   transform: translateY(0);
 }
 
+/* --- Puntos del carrusel --- */
 .game-section .owl-theme.custom-carousel .owl-dots {
   margin-top: -1rem;
   position: relative;
   z-index: 5;
 }
 
-/* GENERAL */
 .owl-carousel {
   overflow: hidden;
 }
 
 @media (max-width: 576px) {
   .game-section {
-    padding: 2rem 1.5rem 2rem; /* más espacio horizontal y margen inferior */
-    margin-bottom: 2rem; /* separa del borde inferior */
+    padding: 2rem 1.5rem;
+    margin-bottom: 2rem;
   }
 
   .game-section .item {
-    margin: 0 0.5rem 2.5rem;
     width: 12.5rem;
     height: 17.5rem;
+    margin: 0 0.5rem 2.5rem;
     border-radius: 1rem;
   }
 
   .game-section .item.active {
-    width: 16.5rem; /* ajustado para no generar overflow */
-    box-shadow: 0.5rem 1rem 1rem rgba(0, 0, 0, 0.25);
+    width: 16.5rem;
     padding-bottom: 0.5rem;
+    box-shadow: 0.5rem 1rem 1rem rgba(0, 0, 0, 0.25);
   }
 
   .game-section .item-desc {
@@ -143,7 +149,7 @@ button {
   }
 
   .item-desc h3 {
-    font-size: 1.3rem; /* un poco más legible */
+    font-size: 1.3rem;
     line-height: 1.6rem;
   }
 
@@ -160,9 +166,9 @@ button {
   }
 
   .game-section .item {
-    margin: 0 0.75rem 3.5rem;
     width: 15rem;
     height: 21rem;
+    margin: 0 0.75rem 3.5rem;
   }
 
   .game-section .item.active {
@@ -183,13 +189,13 @@ button {
 @media (min-width: 1024px) {
   .game-section {
     padding: 4rem 3rem;
-    margin-bottom: 3rem; /* separa de otros contenidos */
+    margin-bottom: 3rem;
   }
 
   .game-section .item {
-    margin: 0 1rem 4rem;
     width: 20rem;
     height: 25rem;
+    margin: 0 1rem 4rem;
   }
 
   .game-section .item.active {
@@ -206,5 +212,3 @@ button {
     line-height: 1.6rem;
   }
 }
-
-

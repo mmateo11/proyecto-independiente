@@ -2,42 +2,55 @@
 <html lang="es">
 <head>  
   <meta charset="UTF-8">
-  <title>Admin - Jugadores</title>
+  <title>Admin - Noticias</title>
   <link rel="stylesheet" href="../admin.css">
 </head>
+
 <body>
-  <a href="../index.html">Volver Atras</a>
+  <!-- Back pagina principal -->
+  <a href="../index.html">Volver Atrás</a>
 
-  <h1>Panel de Administración - noticias </h1>
+  <h1>Panel de Administración - Noticias</h1>
 
+  <!-- Formulario para crear o editar noticias -->
   <form id="noticiaForm">
+    <!-- Campo para la ID, no se muestra -->
     <input type="hidden" id="noticiaId">
-    <input type="text" id="titulo" placeholder="titulo" required>
-    <input type="text" id="resumen" placeholder="resumen" required>
-    <select id="tipo" required>
-        <option value="PRINCIPAL">PRINCIPAL</option>
-        <option value="SECUNDARIO">SECUNDARIO</option>
-    </select>
-    <input type="text" id="descripcion" placeholder="descripcion" required>
-    <input type="url" id="url_imagen" placeholder="URL Imagen" required>
-    <button type="submit">Guardar</button>
-</form>
 
+    <input type="text" id="titulo" placeholder="Título" required>
+    <input type="text" id="resumen" placeholder="Resumen" required>
+
+    <!-- Selector del tipo de noticia -->
+    <select id="tipo" required>
+      <option value="PRINCIPAL">PRINCIPAL</option>
+      <option value="SECUNDARIO">SECUNDARIO</option>
+    </select>
+
+    <input type="text" id="descripcion" placeholder="Descripción" required>
+    <input type="url" id="url_imagen" placeholder="URL Imagen" required>
+
+    <button type="submit">Guardar</button>
+  </form>
+
+  <!-- Encabezados de la tabla -->
   <table>
     <thead>
       <tr>
-        <th>titulo</th>
-        <th>tipo</th>
-        <th>resumen</th>
-        <th>descripcion</th>
-        <th>fecha</th>
-        <th>url_imagen</th>
+        <th>Título</th>
+        <th>Tipo</th>
+        <th>Resumen</th>
+        <th>Descripción</th>
+        <th>Fecha</th>
+        <th>URL Imagen</th>
         <th>Acciones</th>
       </tr>
     </thead>
+
+    <!-- Cuerpo dinámico generado desde JavaScript -->
     <tbody id="noticiaTable"></tbody>
   </table>
 
+  <!-- Archivo javascript para insertar los registros -->
   <script src="./noticias.js"></script>
 </body>
 </html>

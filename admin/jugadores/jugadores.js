@@ -1,13 +1,21 @@
+// URL base de la API
 const API_URL = "http://localhost:3000/jugadores";
+
+// Referencias a elementos del DOM
 const table = document.getElementById("playersTable");
 const form = document.getElementById("playerForm");
+
+/* Muestra los registros creados en la tabla por medio de la API */
 
 async function loadPlayers() {
   const res = await fetch(API_URL);
   const players = await res.json();
+
   table.innerHTML = "";
+
   players.forEach(p => {
     const row = document.createElement("tr");
+
     row.innerHTML = `
       <td>${p.nombre}</td>
       <td>${p.posicion}</td>
@@ -22,24 +30,31 @@ async function loadPlayers() {
         <button onclick="deletePlayer('${p.id}')">Borrar</button>
       </td>
     `;
+
     table.appendChild(row);
   });
 }
 
+/* Maneja el envío del formulario para crear o actualizar un jugador */
+
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
+
   const id = document.getElementById("playerId").value;
+
+  // Datos capturados del formulario
   const data = {
     nombre: document.getElementById("nombre").value,
     posicion: document.getElementById("posicion").value,
-    edad:  parseInt(document.getElementById("edad").value),  
+    edad: parseInt(document.getElementById("edad").value),
     lugar_nacimiento: document.getElementById("lugar_nacimiento").value,
     nacionalidad: document.getElementById("nacionalidad").value,
-    peso: parseFloat(document.getElementById("peso").value),  
-    dorsal: parseInt(document.getElementById("dorsal").value),  
+    peso: parseFloat(document.getElementById("peso").value),
+    dorsal: parseInt(document.getElementById("dorsal").value),
     url_imagen: document.getElementById("url_imagen").value
   };
 
+  // Si hay un ID, se actualiza; si no, se crea un nuevo jugador
   if (id) {
     await fetch(`${API_URL}/${id}`, {
       method: "PUT",
@@ -54,17 +69,21 @@ form.addEventListener("submit", async (e) => {
     });
   }
 
+  // Limpia el formulario y recarga la tabla
   form.reset();
   document.getElementById("playerId").value = "";
-  loadPlayers();
+  loadPlayers(); // Pide de nuevo todos los registros para que se actualizen
 });
 
+/*  Elimina un jugador por su ID luego de confirmación. */
 async function deletePlayer(id) {
   if (confirm("¿Seguro que quieres eliminar este jugador?")) {
     await fetch(`${API_URL}/${id}`, { method: "DELETE" });
-    loadPlayers();
+    loadPlayers(); // Actualiza los registros
   }
 }
+
+/* Carga los datos del jugador seleccionado en el formulario para editarlo */
 
 function editPlayer(id, nombre, posicion, edad, lugar_nacimiento, nacionalidad, peso, dorsal, url_imagen) {
   document.getElementById("playerId").value = id;
@@ -78,4 +97,5 @@ function editPlayer(id, nombre, posicion, edad, lugar_nacimiento, nacionalidad, 
   document.getElementById("url_imagen").value = url_imagen;
 }
 
+// Carga inicial de los jugadores al abrir la página
 loadPlayers();

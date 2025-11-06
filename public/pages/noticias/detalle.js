@@ -1,13 +1,16 @@
 document.addEventListener("DOMContentLoaded", async () => {
+    // Obtiene el parametro 'id' de la URL
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');
-    try {
-        
-        const res = await fetch(`${baseURL}/noticias/${id}`)
 
-        if  (!res.ok) throw new Error('No se pudo cargar la noticia.');
+    try {
+        const res = await fetch(`${baseURL}/noticias/${id}`);
+
+        if (!res.ok) throw new Error('No se pudo cargar la noticia.');
+
         const noticia = await res.json();
 
+        // Actualiza el DOM con la información de la noticia
         document.getElementById('detalle-titulo').textContent = noticia.titulo;
         document.getElementById('detalle-resumen').textContent = noticia.resumen;
         document.getElementById('detalle-img').src = noticia.url_imagen || 'https://placehold.co/600x400?text=No+Image';

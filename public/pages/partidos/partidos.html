@@ -4,51 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Partidos</title>
+
     <link rel="stylesheet" href="/public/assets/estilos/partidos.css">
     <link rel="stylesheet" href="/public/pages/components/header.css">
     <link rel="stylesheet" href="/public/pages/components/footer.css">
+    <link rel="stylesheet" href="/public/assets/estilos/login.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" />
+
+    <!-- Iconos de Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"/>
+
+    <!-- Librería AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Scripts para incluir header, footer y funcionalidades de login -->
     <script src="/public/pages/components/include-header.js"></script> 
     <script src="/public/pages/components/include-footer.js"></script> 
     <script src="/public/pages/socios/login.js"></script>
-    <link rel="stylesheet" href="/public/assets/estilos/login.css" />
-    <!-- SweetAlert2 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"/>
-
-    <!-- CSS AOS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
-<div id="header-container"></div>
-
 <body>
+
+    <!-- Contenedor header -->
+    <div id="header-container"></div>
 
     <div class="titulo" data-aos="fade-up">
         <h1>Próximos Partidos</h1>
     </div>
 
+    <!-- Contenedor principal -->
     <main data-aos="fade-right" class="contenedor" id="partidosContainer">
-
     </main>
     
-<script src="/public/pages/partidos/partidos.js"></script> 
+    <!-- Script principal que carga los partidos en la página -->
+    <script src="/public/pages/partidos/partidos.js"></script> 
 
-<div id="footer-container"></div>
+    <!-- Contenedor footer -->
+    <div id="footer-container"></div>
 
-<!-- JS AOS -->
+    <!-- AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<!-- SweetAlert2 -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
 
-        
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+
     <script>
       AOS.init({
-          duration: 900,
-          once: false,
-          mirror: true,
-          easing: 'ease-out-cubic',
+          duration: 900,          
+          once: false,          
+          mirror: true,           
+          easing: 'ease-out-cubic', 
           offset: 110
-        });
+      });
     </script>
 </body>
 </html>

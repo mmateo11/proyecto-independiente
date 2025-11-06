@@ -5,58 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sede Digital</title>
 
-    <!-- Estilos -->
     <link rel="stylesheet" href="../../assets/estilos/socios.css" />
     <link rel="stylesheet" href="../components/header.css" />
     <link rel="stylesheet" href="../components/footer.css" />
     <link rel="stylesheet" href="/public/assets/estilos/login.css" />
-    <!-- SweetAlert2 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" />
 
     <!-- SweetAlert2 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" />
 
-
-    <!-- Scripts -->
+    <!-- Scripts header/footer y login -->
     <script src="../components/include-header.js"></script>
     <script src="../components/include-footer.js"></script>
     <script src="../socios/login.js"></script>
 
-    <!-- CSS AOS -->
+    <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   </head>
 
   <body>
+    <!-- Header -->
     <div id="header-container"></div>
 
+    <!-- Contenedor principal del perfil -->
     <div class="perfil-container">
       <div class="perfil-socio" data-aos="zoom-in">
-        <div class="perfil-body" >
+        <div class="perfil-body">
+          
+          <!-- Foto de perfil -->
           <div class="perfil-foto">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png"
-              alt="Foto de perfil"
-            />
+            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="Foto de perfil" />
           </div>
 
+          <!-- Información del socio -->
           <div class="perfil-info">
             <h2 id="socioNombre"></h2>
 
+            <!-- Email -->
             <p class="email">
               <i class="icon">📧</i>
               <span id="socioEmail"></span>
             </p>
 
-           <div class="campo">
-            <label>Método de pago</label>
-            <select id="socioPago">
-              <option value="TARJETA">Tarjeta</option>
-              <option value="EFECTIVO">Efectivo</option>
-              <option value="TRANSFERENCIA">Transferencia</option>
-            </select>
-            <button id="guardarPago" class="btn borde-rojo">GUARDAR MÉTODO</button>
-          </div>
+            <!-- MEtodo de pago -->
+            <div class="campo">
+              <label>Método de pago</label>
+              <select id="socioPago">
+                <option value="TARJETA">Tarjeta</option>
+                <option value="EFECTIVO">Efectivo</option>
+                <option value="TRANSFERENCIA">Transferencia</option>
+              </select>
+              <button id="guardarPago" class="btn borde-rojo">GUARDAR MÉTODO</button>
+            </div>
 
+            <!-- Estado de la cuota -->
             <div class="campo">
               <label>Estado de cuota</label>
               <div class="estado">
@@ -74,81 +75,85 @@
       </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Footer -->
+    <div id="footer-container"></div>
 
-     <!-- JS AOS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
       AOS.init({
-          duration: 900,
-          once: false,
-          mirror: true,
+          duration: 900, 
+          once: false,   
+          mirror: true, 
           easing: 'ease-out-cubic',
           offset: 110
-        });
+      });
     </script>
+
+    <!-- Script para cargar datos del socio y actualizar método de pago -->
+     
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-          const socio = JSON.parse(localStorage.getItem("socio"));
+      document.addEventListener("DOMContentLoaded", () => {
+        const socio = JSON.parse(localStorage.getItem("socio"));
 
-          // Referencias a elementos
-          const socioPagoSelect = document.getElementById("socioPago");
-          const guardarPagoBtn = document.getElementById("guardarPago");
+        // Referencias a elementos
+        const socioPagoSelect = document.getElementById("socioPago");
+        const guardarPagoBtn = document.getElementById("guardarPago");
 
-          if (!socio) {
-            window.location.href = "index.html";
-            return;
-          }
+        // Si no hay socio logueado, redirige al inicio
+        if (!socio) {
+          window.location.href = "index.html";
+          return;
+        }
 
-          // Traer datos del backend
-          fetch(`${baseURL}/socios/${socio.id}`)
-            .then((res) => res.json())
-            .then((data) => {
-              document.getElementById("socioNombre").textContent = data.nombre;
-              document.getElementById("socioEmail").textContent = data.email;
-              document.getElementById("socioestado").textContent = data.estado
-                ? "Cuota al día"
-                : "Cuota vencida";
+        // Traer datos del backend
+        fetch(`${baseURL}/socios/${socio.id}`)
+          .then((res) => res.json())
+          .then((data) => {
+            // Actualizar información en pantalla
+            document.getElementById("socioNombre").textContent = data.nombre;
+            document.getElementById("socioEmail").textContent = data.email;
+            document.getElementById("socioestado").textContent = data.estado
+              ? "Cuota al día"
+              : "Cuota vencida";
 
-              // Setear el valor del select al método de pago del backend
-              socioPagoSelect.value = data.metodo_pago;
+            // Setear select con el método de pago actual
+            socioPagoSelect.value = data.metodo_pago;
 
-              localStorage.setItem("socio", JSON.stringify(data));
-            })
-            .catch((err) => console.error("Error al cargar socio:", err));
+            // Guardar datos actualizados en localStorage
+            localStorage.setItem("socio", JSON.stringify(data));
+          })
+          .catch((err) => console.error("Error al cargar socio:", err));
 
-          // Guardar cambio de método de pago
-          guardarPagoBtn.addEventListener("click", () => {
-            const nuevoMetodo = socioPagoSelect.value;
+        // Guardar cambio de método de pago
+        guardarPagoBtn.addEventListener("click", () => {
+          const nuevoMetodo = socioPagoSelect.value;
 
-            fetch(`${baseURL}/socios/${socio.id}`, {
-              method: "PUT",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ metodo_pago: nuevoMetodo })
-            })
-              .then((res) => res.json())
-              .then((data) => {
-                if (data.success) {
-                  Swal.fire({
-                  title: "Método actualizado ✅",
-                  text: `Nuevo método: ${data.socio.metodo_pago}`,
-                  icon: "success",
-                  position: "top",
-                  toast: true,
-                  showConfirmButton: false,
-                  timer: 2000,
-                  background: "#EC1C24",
-                  color: "#fff",
-                  customClass: {
-                    popup: "swal2-rounded swal2-shadow"
-                  },
-                });
-              }
-              else {
-                Swal.fire({
+          fetch(`${baseURL}/socios/${socio.id}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ metodo_pago: nuevoMetodo })
+          })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.success) {
+              // Mostrar alerta de éxito
+              Swal.fire({
+                title: "Método actualizado ✅",
+                text: `Nuevo método: ${data.socio.metodo_pago}`,
+                icon: "success",
+                position: "top",
+                toast: true,
+                showConfirmButton: false,
+                timer: 2000,
+                background: "#EC1C24",
+                color: "#fff",
+                customClass: { popup: "swal2-rounded swal2-shadow" },
+              });
+            } else {
+              // Mostrar alerta de error
+              Swal.fire({
                 title: "Error ❌",
                 text: "No se pudo actualizar el método de pago.",
                 icon: "error",
@@ -159,13 +164,11 @@
                 background: "#222",
                 color: "#fff",
               });
-              }
-              })
-              .catch((err) => console.error(err));
-          });
+            }
+          })
+          .catch((err) => console.error(err));
         });
-      </script>
-
-    <div id="footer-container"></div>
+      });
+    </script>
   </body>
 </html>

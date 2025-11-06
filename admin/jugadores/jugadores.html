@@ -5,24 +5,31 @@
   <title>Admin - Jugadores</title>
   <link rel="stylesheet" href="../admin.css">
 </head>
+
 <body>
-  <a class="volver" href="../index.html">Volver Atras</a>
+  <!-- Back pagina principal -->
+  <a class="volver" href="../index.html">Volver atrás</a>
 
-  <h1>Panel de Administración - Jugadores </h1>
+  <h1>Panel de Administración - Jugadores</h1>
 
+  <!-- Formulario para agregar o editar jugadores -->
   <form id="playerForm">
+    <!-- Campo para la ID, no se muestra -->
     <input type="hidden" id="playerId">
+
     <input type="text" id="nombre" placeholder="Nombre" required>
     <input type="text" id="posicion" placeholder="Posición" required>
-    <input type="number" id="edad" placeholder="edad" required>
-    <input type="text" id="lugar_nacimiento" placeholder="lugar nacimiento" required>
-    <input type="text" id="nacionalidad" placeholder="nacionalidad" required>
-    <input type="number" id="peso" placeholder="peso" required>
+    <input type="number" id="edad" placeholder="Edad" required>
+    <input type="text" id="lugar_nacimiento" placeholder="Lugar de nacimiento" required>
+    <input type="text" id="nacionalidad" placeholder="Nacionalidad" required>
+    <input type="number" id="peso" placeholder="Peso" required>
     <input type="number" id="dorsal" placeholder="Dorsal" required>
-    <input type="url" id="url_imagen" placeholder="URL Imagen" required>
+    <input type="url" id="url_imagen" placeholder="URL de imagen" required>
+
     <button type="submit">Guardar</button>
   </form>
 
+  <!-- Encabezados de la tabla -->
   <table>
     <thead>
       <tr>
@@ -37,9 +44,12 @@
         <th>Acciones</th>
       </tr>
     </thead>
+
+    <!-- El cuerpo con los registros dinamicos -->
     <tbody id="playersTable"></tbody>
   </table>
 
+  <!-- Archivo javascript para insertar los registros -->
   <script src="./jugadores.js"></script>
 </body>
 </html>
