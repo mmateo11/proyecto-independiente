@@ -10,7 +10,7 @@ html, body {
   max-width: 100%; 
 }
 
-img, video, iframe {
+img {
   max-width: 100%;
   height: auto;
   display: block; 

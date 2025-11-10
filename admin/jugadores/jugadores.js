@@ -1,5 +1,5 @@
 // URL base de la API
-const API_URL = "http://localhost:3000/jugadores";
+const API_URL = "http://localhost:3000/api/jugadores";
 
 // Referencias a elementos del DOM
 const table = document.getElementById("playersTable");

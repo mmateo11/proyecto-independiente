@@ -1,5 +1,5 @@
 // URL base de la API
-const API_URL = "http://localhost:3000/noticias";
+const API_URL = "http://localhost:3000/api/noticias";
 
 // Referencias al DOM
 const table = document.getElementById("noticiaTable");

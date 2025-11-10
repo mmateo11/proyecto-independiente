@@ -1,5 +1,5 @@
 // URL base de la API 
-const API_URL = "http://localhost:3000/partidos";
+const API_URL = "http://localhost:3000/api/partidos";
 
 // Referencias del DOM
 const table = document.getElementById("partidoTable");

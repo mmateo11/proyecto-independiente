@@ -1,6 +1,6 @@
 html, body {
   width: 100%;
-  overflow-x: hidden; /* evita scroll horizontal */
+  overflow-x: hidden;
 }
 
 * {
@@ -10,7 +10,7 @@ html, body {
   max-width: 100%;
 }
 
-img, video {
+img {
   max-width: 100%;
   display: block;
 }
@@ -238,30 +238,9 @@ body {
   }
 }
 
-@media (min-width: 1024px) {
-  .content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 2rem;
-    gap: 2rem;
-  }
-
-  .noticia1 {
-    flex: 1 1 calc(50% - 2rem);
-    max-width: none;
-    height: auto;
-    margin-bottom: 0;
-  }
-
-  .noticia1 p {
-    display: block;
-    color: white;
-    margin-top: 1rem;
-    font-size: 1rem;
-  }
-
-  .noticia1 h2 {
-    font-size: 2.5rem;
+@media (min-width: 1400px) {
+  .col-md-8 {
+    max-width: 60%; /* o 66.66% si querés igual que col-md-8 */
+    margin: 0 auto;
   }
 }
