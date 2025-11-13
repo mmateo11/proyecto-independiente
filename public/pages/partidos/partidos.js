@@ -4,9 +4,9 @@ const container = document.getElementById("partidosContainer");
 const logos = {
     "independiente": "/public/assets/img/logos/independiente.svg",
     "Boca Juniors": "/public/assets/img/logos/Boca Juniors.svg",
-    "atletico tucuman": "/public/assets/img/logos/atletico_tucuman.svg",
+    "Atletico Tucuman": "/public/assets/img/logos/Atletico Tucuman.svg",
     "Riestra": "/public/assets/img/logos/Riestra.svg",
-    "rosario central": "/public/assets/img/logos/rosario_central.svg"
+    "Rosario Central": "/public/assets/img/logos/Rosario Central.svg"
 }; 
 
 // Función para cargar los partidos desde la API

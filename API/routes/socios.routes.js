@@ -47,7 +47,7 @@ router.post('/register', async (req, res) => {
     const passwordvalidacion =
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     if (!passwordvalidacion.test(password))
-      return res.status(400).json({ error: 'Contraseña inválida' });
+      return res.status(400).json({ error: '8 caracteres: 1 mayuscula, 1 minuscula, 1 numero y un carcater especial' });
 
     // Comprobar si ya existe
     const userExists = await prisma.socios.findUnique({ where: { email } });
