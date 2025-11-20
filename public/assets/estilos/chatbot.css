@@ -1,4 +1,3 @@
-/* Aíslamos al chatbot para evitar la herencia del index.css */
 #chatbot-container,
 #chatbot-container * {
     max-width: none;
@@ -34,22 +33,22 @@ body.dark-mode {
 
 .chatbot-container {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 1rem;
+    right: 1rem;
     z-index: 1000;
     font-family: Arial, sans-serif;
 }
 
 .chatbot-toggle {
-    width: 60px;
-    height: 60px;
+    width: 4rem;
+    height: 4rem;
     border-radius: 50%;
     background-color: var(--rojo);
     color: var(--blanco);
     border: none;
-    box-shadow: 0 4px 10px var(--shadow-heavy);
+    box-shadow: 0 0 1rem var(--shadow-heavy);
     cursor: pointer;
-    font-size: 24px;
+    font-size: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -59,28 +58,28 @@ body.dark-mode {
 .chatbot-toggle:hover {
     transform: scale(1.05);
     background-color: var(--rojo-hover);
-    box-shadow: 0 6px 15px var(--shadow-heavy);
+    box-shadow: 0 0 1rem var(--shadow-heavy);
 }
 
 .chatbot-window {
-    width: 450px;
-    max-height: 470px;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px var(--shadow-heavy);
+    width: 28rem;
+    max-height: 30rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 2rem var(--shadow-heavy);
     display: flex;
     flex-direction: column;
     overflow: hidden;
     position: absolute;
-    bottom: 80px;
+    bottom: 5rem;
     right: 0;
     background-color: var(--rojo);
-    border: 2px solid var(--blanco);
+    border: 0.1rem solid var(--blanco);
     transition: transform var(--transition-fast), opacity var(--transition-fast), visibility var(--transition-fast);
 }
 
 .chatbot-window.hidden {
     opacity: 0;
-    transform: translateY(20px) scale(0.9);
+    transform: translateY(1rem) scale(0.9);
     visibility: hidden;
 }
 
@@ -94,21 +93,21 @@ body.dark-mode {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px;
+    padding: 1rem;
     background-color: var(--gris-claro);
-    border-bottom: 2px solid var(--blanco);
+    border-bottom: 0.1rem solid var(--blanco);
     color: var(--negro);
 }
 
 .chatbot-header h3 {
     margin: 0;
-    font-size: 1.1em;
+    font-size: 1rem;
 }
 
 .chatbot-close {
     background: none;
     border: none;
-    font-size: 1.2em;
+    font-size: 1rem;
     cursor: pointer;
     color: var(--negro);
     transition: var(--transition-fast);
@@ -120,49 +119,49 @@ body.dark-mode {
 
 .chatbot-messages {
     flex-grow: 1;
-    padding: 15px;
+    padding: 1rem;
     overflow-y: auto;
     background-color: var(--chatbot-bg);
-    border-bottom: 2px solid var(--gris-medio);
+    border-bottom: 0.1rem solid var(--gris-medio);
 }
 
 .message {
-    margin-bottom: 12px;
+    margin-bottom: 1rem;
     max-width: 80%;
-    padding: 10px 15px;
-    border-radius: 16px;
+    padding: 1rem;
+    border-radius: 1rem;
     line-height: 1.4;
-    font-size: 0.92em;
+    font-size: 1rem;
 }
 
 .user-message {
     background-color: var(--user-msg-bg);
     color: var(--blanco);
     margin-left: auto;
-    border-bottom-right-radius: 5px;
+    border-bottom-right-radius: 0;
 }
 
 .bot-message {
     background-color: var(--bot-msg-bg);
     color: var(--chatbot-text);
     margin-right: auto;
-    border-bottom-left-radius: 5px;
+    border-bottom-left-radius: 0;
 }
 
 .chatbot-input-area {
     display: flex;
-    padding: 10px 15px;
+    padding: 1rem;
     background-color: var(--gris-claro);
-    border-top: 2px solid var(--gris-medio);
+    border-top: 0.1rem solid var(--gris-medio);
 }
 
 #chatbot-input {
     flex-grow: 1;
-    padding: 10px;
-    border: 1px solid var(--gris-medio);
-    border-radius: 20px;
-    margin-right: 10px;
-    font-size: 1em;
+    padding: 1rem;
+    border: 0.1rem solid var(--gris-medio);
+    border-radius: 2rem;
+    margin-right: 1rem;
+    font-size: 1rem;
     background-color: var(--chatbot-bg);
     color: var(--chatbot-text);
     transition: border-color var(--transition-fast);
@@ -178,11 +177,11 @@ body.dark-mode {
     color: var(--blanco);
     border: none;
     border-radius: 50%;
-    width: 42px;
-    height: 42px;
+    width: 3rem;
+    height: 3rem;
     cursor: pointer;
     transition: background-color var(--transition-fast);
-    font-size: 1.1em;
+    font-size: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -190,4 +189,14 @@ body.dark-mode {
 
 #chatbot-send:hover {
     background-color: var(--rojo-hover);
+}
+
+@media (max-width: 480px) {
+
+.chatbot-window {
+    width: 22rem;
+    max-height: 30rem;
+    
+}
+
 }

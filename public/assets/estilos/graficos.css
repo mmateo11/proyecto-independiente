@@ -67,17 +67,19 @@ canvas {
   }
 
   .goles-linea {
-    flex: 0 0 100%;
     width: 100%;
     height: 25rem;
   }
 
   .grafico-lateral {
+    flex-direction: row;
     width: 100%;
+    gap: 1rem;
   }
 
   .grafico-lateral .grafico {
-    height: 8rem;
+    flex: 1;
+    height: 12rem;
   }
 }
 
