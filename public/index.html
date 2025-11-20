@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="assets/estilos/copas.css" />
   <link rel="stylesheet" href="assets/estilos/detalles_jugadores.css" />
   <link rel="stylesheet" href="assets/estilos/graficos.css" />
+  <link rel="stylesheet" href="assets/estilos/chatbot.css" />
 
   <!-- Animaciones AOS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -45,6 +46,7 @@
     <!-- Scripts de login y header -->
     <script src="pages/socios/login.js" defer></script>
     <script src="pages/components/include-header.js" defer></script>
+    <script src="pages/components/chatbot.js"></script>
 
     <!-- Redes sociales y sponsors -->
     <div class="d-flex n-wrap" id="cabecera">
@@ -215,6 +217,27 @@
 
       </div>
     </section>
+
+    <div class="chatbot-container" id="chatbot-container">
+          <button class="chatbot-toggle" id="chatbot-toggle" aria-label="Abrir Chatbot">
+              <i class="bi bi-chat-dots-fill"></i>
+          </button>
+          <div class="chatbot-window" id="chatbot-window">
+              <div class="chatbot-header">
+                  <h3>Asistente INDEPENDIENTE</h3>
+                  <button class="chatbot-close" id="chatbot-close" aria-label="Cerrar Chatbot">
+                      <i class="bi bi-x-lg"></i>
+                  </button>
+              </div>
+              <div class="chatbot-messages" id="chatbot-messages"></div>
+              <div class="chatbot-input-area">
+                  <input type="text" id="chatbot-input" placeholder="Escribe tu pregunta..." aria-label="Escribe tu pregunta al asistente">
+                  <button id="chatbot-send" aria-label="Enviar mensaje">
+                      <i class="bi bi-send-fill"></i>
+                  </button>
+              </div>
+          </div>
+    </div>
 
     <!-- Footer -->
     <div id="footer-container"></div>
