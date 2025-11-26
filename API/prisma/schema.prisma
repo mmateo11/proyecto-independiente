@@ -4,7 +4,7 @@ generator client {
 
 datasource db {
   provider = "postgresql" //tipo de proveedor de bd
-  url      = env("DATABASE_URL") //link con base de datos 
+  url      = env("DATABASE_URL")
 }
 
 // Enums: lista cerrada de opciones
