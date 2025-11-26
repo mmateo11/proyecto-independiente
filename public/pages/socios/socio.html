@@ -107,10 +107,12 @@
         fetch(`${baseURL}/socios/${socio.id}`)
           .then((res) => res.json())
           .then((data) => {
+            console.log("ESTADO QUE LLEGA DEL BACKEND:", data.activo, typeof data.activo);
+
             // Actualizar información en pantalla
             document.getElementById("socioNombre").textContent = data.nombre;
             document.getElementById("socioEmail").textContent = data.email;
-            document.getElementById("socioestado").textContent = data.estado
+            document.getElementById("socioestado").textContent = data.activo
               ? "Cuota al día"
               : "Cuota vencida";
 
