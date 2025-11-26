@@ -23,7 +23,6 @@
 
 .graficos-container {
   display: flex;
-  height: 50rem;
   gap: 1.5rem;
   justify-content: center;
   align-items: stretch;
